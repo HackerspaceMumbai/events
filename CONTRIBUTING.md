@@ -28,6 +28,7 @@ Create the event, add the agenda, add speakers, then publish.
    - Open a Pull Request.
    - After the event, complete `recap.md` and `contributors.md`.
    - Prefer links over binaries in `resources/`.
+   - Archive final event branding under `media/` (`cover.jpg` strongly recommended; `banner.jpg` optional). Reference them from `event.yml` `assets`. Keep visual assets ≤ 500 KB when possible (maximum 1 MB). See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
 
 ## Speaker workflow
 
@@ -39,10 +40,11 @@ Find the event, create your folder, add resources, submit a PR.
    - Copy [templates/speaker-template.md](templates/speaker-template.md) to `speaker.md`.
 3. **Add resources**
    - Link slides, source, and recordings in frontmatter when possible.
-   - Local files belong in `assets/` only when a durable public URL does not exist.
-   - Keep files at or below 25 MB. CI warns above that size.
+   - Optional: add the final published speaker card as `card.jpg` (or `card.webp`) and set `card:` in frontmatter. Target ≤ 500 KB (maximum 1 MB).
+   - Other local session files belong in `assets/` only when a durable public URL does not exist (≤ 25 MB; CI warns above that size).
+   - Do not edit organizer `media/` or shared marketing folders.
 4. **Submit a PR** that modifies **only** `speakers/<your-github-handle>/**`.
-   - Do not edit `README.md`, `agenda.md`, `recap.md`, `event.yml`, `contributors.md`, or another speaker's folder.
+   - Do not edit `README.md`, `agenda.md`, `recap.md`, `event.yml`, `contributors.md`, `media/`, or another speaker's folder.
 
 CI enforces this contract so maintainers can merge many speaker submissions without conflicts.
 

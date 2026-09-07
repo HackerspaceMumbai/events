@@ -29,7 +29,13 @@ events/
         ├── agenda.md
         ├── recap.md
         ├── contributors.md
+        ├── media/
+        │   ├── cover.jpg
+        │   └── banner.jpg
         ├── speakers/
+        │   └── <github-handle>/
+        │       ├── speaker.md
+        │       └── card.jpg
         └── resources/
 ```
 

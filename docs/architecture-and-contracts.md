@@ -18,7 +18,7 @@ Supports Pull Requests, reviews, and community ownership.
 
 ### Hackmum.in
 
-Public presentation layer. It should consume `event.yml` and the markdown artifacts in each event folder to display past events, speakers, resources, recaps, and gallery links.
+Public presentation layer. It should consume `event.yml` and the markdown artifacts in each event folder to display past events, speakers, resources, recaps, gallery links, and relative visual asset paths (`assets.cover`, speaker `card`).
 
 This repository does not generate website pages. See [Future Hackmum consumption](#future-hackmum-consumption).
 
@@ -62,6 +62,7 @@ Unknown `eventType` values fail CI.
 | `hashtags` | string[] | e.g. `[mumtechup, DevDaysMumbai]` |
 | `description` | string | Short public summary |
 | `gallery` | URI | Public photo/video album |
+| `assets` | object | Relative paths to organizer visual identity files (see [Visual Assets Archival Standard](#visual-assets-archival-standard)) |
 
 The JSON Schema lives at [`schema/event.schema.json`](../schema/event.schema.json).
 
@@ -123,6 +124,130 @@ Maximum recommended size: **25 MB**. CI emits a warning when an added or changed
 
 Keep secrets, attendee lists, and private contact data out of git.
 
+Session binaries and link-first resources are distinct from curated visual identity files. See [Visual Assets Archival Standard](#visual-assets-archival-standard) for cover images and speaker cards (tighter size limits, finals only).
+
+## Visual Assets Archival Standard
+
+Final published branding documents how an event was promoted and how speakers were presented. Preserve those artifacts in-repo without turning GitHub into a media CDN or introducing shared marketing folders that break the Speaker PR contract.
+
+### Rationale
+
+Visual assets archive:
+
+- Event branding
+- Speaker promotion
+- Community history
+- Sponsor participation context (when present on published artwork)
+- Evolution of Hackerspace Mumbai over time
+
+Store only the **final published** artifact for each role. Do not commit design sources, drafts, or export variants.
+
+### Ownership boundaries
+
+| Owner | Location | Examples |
+| --- | --- | --- |
+| Organizers | `media/` | `cover.jpg`, optional `banner.jpg` |
+| Speakers | `speakers/<github-handle>/` | `card.jpg` beside `speaker.md` |
+
+Invalid (creates ownership ambiguity and merge conflicts):
+
+```text
+marketing/speaker-cards/
+shared-assets/
+event-root/card.jpg
+```
+
+### Event assets (organizer-owned)
+
+```text
+media/
+├── cover.jpg    # strongly recommended
+└── banner.jpg   # optional
+```
+
+- Use `.jpg` or `.webp`.
+- `cover.jpg` is the primary event identity graphic (registration art, official promotional cover).
+- `banner.jpg` is optional (sponsor announcements, secondary promotional strips).
+- Maintained by organizers; speakers must not modify `media/`.
+
+### Speaker assets (speaker-owned)
+
+```text
+speakers/<github-handle>/
+├── speaker.md
+└── card.jpg      # optional, strongly encouraged
+```
+
+- `card.jpg` is the final published speaker promotional card.
+- Supported formats: `.jpg` or `.webp` (prefer `card.jpg` or `card.webp`).
+- Referenced from speaker frontmatter; stored only in that speaker's folder.
+- Session slides and other binaries still belong in `assets/` when a public URL is unavailable (see Resource policy).
+
+### Speaker PR compatibility
+
+`card.jpg` lives under `speakers/<github-handle>/`, so it remains inside the Atomic Speaker PR path:
+
+```text
+speakers/<github-handle>/**
+```
+
+Speakers must not edit `media/`, `event.yml` `assets`, or another speaker's card. Organizers scaffolding multiple speaker folders should label the PR `organizer`.
+
+### Size and compression
+
+| Target | Limit |
+| --- | --- |
+| Recommended | ≤ 500 KB per visual asset |
+| Maximum | ≤ 1 MB per visual asset |
+
+Compress before commit (Squoosh, TinyPNG, `cwebp`). Prefer finals that stay near the recommended size.
+
+### Not allowed
+
+- Canva / Figma / Photoshop / Illustrator project files
+- Raw camera files
+- Multiple export variants (`speaker-v1.png`, `speaker-v3-final.png`)
+- Draft revisions and temporary design assets
+- Photo galleries as bulk uploads (use optional `gallery` URI instead)
+
+### Machine-readable metadata
+
+Paths are relative to the event folder (or speaker folder for `card`) and portable for static-site generation and hackmum.in:
+
+```yaml
+# event.yml
+assets:
+  cover: media/cover.jpg
+  banner: media/banner.jpg   # optional
+```
+
+```yaml
+# speakers/<handle>/speaker.md frontmatter
+card: card.jpg
+```
+
+Consumers resolve `assets.cover` / `assets.banner` against the event directory, and `card` against the speaker directory containing `speaker.md`.
+
+### Target layout
+
+```text
+events/YYYY/YYYY-MM-DD-event-slug/
+├── event.yml
+├── README.md
+├── agenda.md
+├── recap.md
+├── contributors.md
+├── media/
+│   ├── cover.jpg
+│   └── banner.jpg
+└── speakers/
+    └── <github-handle>/
+        ├── speaker.md
+        └── card.jpg
+```
+
+This shape scales across recurring meetups, conference-style events, Hacktoberfest, Dev Days, and one-off community gatherings without shared marketing directories.
+
 ## Recaps and contributors
 
 `recap.md` is a first-class artifact for completed events.
@@ -136,5 +261,6 @@ Hackmum may later:
 - Walk `events/**/event.yml`
 - Render event pages from `README.md`, `agenda.md`, `recap.md`, and `speakers/*/speaker.md`
 - Surface resource links and gallery URLs
+- Resolve relative `assets.cover` / `assets.banner` from `event.yml` and `card` from speaker frontmatter for static-site and CDN-friendly image URLs
 
 The notify workflow [`.github/workflows/notify-website-sync.yml`](../.github/workflows/notify-website-sync.yml) is a stub. It no-ops until `HACKMUM_SYNC_WEBHOOK` is configured. No website integration is implemented in this repository.

@@ -17,3 +17,5 @@ hashtags:
   - mumtechup
   - DevDaysMumbai
 description: A community-hosted GitHub Copilot Dev Days session with talks, live demos, and hands-on workshops for Mumbai's builders.
+assets:
+  cover: media/cover.jpg

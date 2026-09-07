@@ -51,9 +51,16 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 ├── agenda.md
 ├── recap.md
 ├── contributors.md
+├── media/
+│   └── cover.jpg
 ├── speakers/
+│   └── <github-handle>/
+│       ├── speaker.md
+│       └── card.jpg
 └── resources/
 ```
+
+Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
 
 ### Event series
 
@@ -94,7 +101,7 @@ Unknown types fail CI. See [docs/event-taxonomy.md](docs/event-taxonomy.md).
 Speaker submissions are conflict-free: each speaker only changes their own folder.
 
 1. Find the event under `events/YYYY/`.
-2. Create `speakers/<your-github-handle>/speaker.md` (and optional `assets/`).
+2. Create `speakers/<your-github-handle>/speaker.md` (optional `card.jpg` for the published speaker card; optional `assets/` for session files).
 3. Prefer links for slides, repos, and recordings.
 4. Open a Pull Request that **only** modifies `speakers/<your-github-handle>/**`.
 

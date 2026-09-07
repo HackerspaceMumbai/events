@@ -1,7 +1,8 @@
 ---
 name: Anas Khan
 sessionTitle: One Interface, Infinite Agents
-github: anas-khan
+github: anxkhn
+# card: card.jpg
 linkedin: https://www.linkedin.com/in/example
 slides: https://speakerdeck.com/example
 repository: https://github.com/example/session
@@ -24,6 +25,15 @@ What the session covers, in a few sentences.
 - Takeaway two
 - Takeaway three
 
+## Speaker card
+
+Optional but strongly encouraged: add the **final published** promotional card as `card.jpg` (or `card.webp`) in this folder and set `card:` in frontmatter to that filename.
+
+- Supported formats: `.jpg`, `.webp`
+- You own only `speakers/<your-github-handle>/` — do not place cards in shared marketing folders
+- Target ≤ 500 KB (maximum 1 MB); compress before commit (Squoosh, TinyPNG, `cwebp`)
+- Do not commit drafts or versioned exports (`card-v2.png`, etc.)
+
 ## Resources
 
 Prefer public links over binaries:
@@ -32,4 +42,4 @@ Prefer public links over binaries:
 - Code: add the session repository URL in `repository`
 - Recording: add the YouTube or other public URL in `recording`
 
-If a file must live in git, put it in `assets/` and keep it at or below 25 MB.
+If a session file must live in git, put it in `assets/` (not the speaker card) and keep it at or below 25 MB.

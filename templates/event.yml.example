@@ -21,3 +21,6 @@ resourcesAvailable: true
 #   - DevDaysMumbai
 # description: A community-hosted GitHub Copilot Dev Days session.
 # gallery: https://hackmum.in/gallery/
+# assets:
+#   cover: media/cover.jpg
+#   banner: media/banner.jpg
