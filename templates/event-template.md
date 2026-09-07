@@ -13,6 +13,22 @@ Short public summary of the gathering.
 - **Series:** series-id or standalone
 - **Website:** https://hackmum.in
 
+## Visual identity
+
+Organizers archive final published branding under [media/](media/):
+
+- `media/cover.jpg` — strongly recommended event cover / registration graphic
+- `media/banner.jpg` — optional secondary promotional banner
+
+Use `.jpg` or `.webp`. Keep each file at or below **500 KB** when possible (maximum **1 MB**). Compress with Squoosh, TinyPNG, or `cwebp` before committing. Reference paths from `event.yml`:
+
+```yaml
+assets:
+  cover: media/cover.jpg
+```
+
+Do not commit design sources, drafts, or multiple export variants. See [Visual Assets Archival Standard](../docs/architecture-and-contracts.md#visual-assets-archival-standard).
+
 ## Agenda
 
 See [agenda.md](agenda.md).

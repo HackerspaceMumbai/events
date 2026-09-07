@@ -19,7 +19,7 @@ body:
     id: github_handle
     attributes:
       label: GitHub username
-      placeholder: anas-khan
+      placeholder: anxkhn
     validations:
       required: true
   - type: input

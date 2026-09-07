@@ -106,6 +106,23 @@
     "gallery": {
       "type": "string",
       "format": "uri"
+    },
+    "assets": {
+      "description": "Relative paths to organizer-owned visual identity files under the event folder.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cover": {
+          "description": "Path relative to the event folder, e.g. media/cover.jpg",
+          "type": "string",
+          "minLength": 1
+        },
+        "banner": {
+          "description": "Optional path relative to the event folder, e.g. media/banner.jpg",
+          "type": "string",
+          "minLength": 1
+        }
+      }
     }
   }
 }
