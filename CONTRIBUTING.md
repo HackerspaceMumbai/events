@@ -15,6 +15,7 @@ Create the event, add the agenda, add speakers, then publish.
    - For tours or multi-stop initiatives, start from [templates/series-template.md](templates/series-template.md).
    - Place the folder at `events/YYYY/YYYY-MM-DD-slug/` (single or multi-day) or `events/YYYY/YYYY-MM-slug/` (series).
    - Fill `event.yml` with required metadata. Use a documented `eventType` from [docs/event-taxonomy.md](docs/event-taxonomy.md).
+   - Scaffold an empty `community/` tree (`photos/`, `notes/`, `stories/`, `highlights/`) so attendees can contribute after the event.
 
 2. **Add the agenda**
    - Edit `agenda.md` with sessions, times, and rooms as they become public.
@@ -26,9 +27,10 @@ Create the event, add the agenda, add speakers, then publish.
 
 4. **Publish**
    - Open a Pull Request.
-   - After the event, complete `recap.md` and `contributors.md`.
+   - After the event, complete `recap.md` and `contributors.md` (include **Community Contributors** as submissions land).
    - Prefer links over binaries in `resources/`.
    - Archive final event branding under `media/` (`cover.jpg` strongly recommended; `banner.jpg` optional). Reference them from `event.yml` `assets`. Keep visual assets ≤ 500 KB when possible (maximum 1 MB). See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
+   - Invite attendees using [Event messaging](docs/event-messaging.md).
 
 ## Speaker workflow
 
@@ -50,12 +52,22 @@ CI enforces this contract so maintainers can merge many speaker submissions with
 
 ## Community workflow
 
-Suggest improvements, share links, and help maintain knowledge.
+Attendees and community members contribute perspective: photos, notes, stories, and highlights.
 
-- Fix typos, add missing resource URLs, and improve recaps.
-- Record organizers, volunteers, photography, A/V, registration, and hosts in `contributors.md`.
-- Open an issue with the event-proposal or speaker-resource templates when you are not ready to send a PR.
-- Keep personal data out of this archive. Do not commit attendee lists, emails, or registration exports.
+Full guidelines: [docs/community-contributions.md](docs/community-contributions.md).
+
+1. **Find the event** under `events/YYYY/`.
+2. **Add your artifact** under your GitHub handle only:
+   - Photos: `community/photos/<your-github-handle>/` (README + `photos/`; ≤ 20 recommended; ≤ 500 KB preferred per image, max 1 MB)
+   - Notes: `community/notes/<your-github-handle>.md` — start from [templates/community-notes-template.md](templates/community-notes-template.md)
+   - Stories: `community/stories/<your-github-handle>.md` — start from [templates/community-story-template.md](templates/community-story-template.md)
+   - Highlights: `community/highlights/<your-github-handle>.md` — start from [templates/community-highlight-template.md](templates/community-highlight-template.md)
+3. **Recognition** — add yourself under **Community Contributors** in `contributors.md`, or ask a maintainer to.
+4. **Submit a PR** labeled `community`. Prefer a PR; use the community issue forms if you need help.
+
+Also welcome: fix typos, improve recaps, and add durable public resource links.
+
+Keep personal data out of this archive. Do not commit attendee lists, emails, or registration exports.
 
 ## Pull request labels
 
@@ -63,7 +75,7 @@ Suggest improvements, share links, and help maintain knowledge.
 | --- | --- |
 | `organizer` | Maintainer or organizer work that may touch shared event files and speaker folders |
 | `speaker` | Speaker-owned folder only |
-| `community` | Recaps, links, docs, and other knowledge-base improvements |
+| `community` | Community photos, notes, stories, highlights, recaps, links, docs, and other knowledge-base improvements |
 
 ## Questions
 

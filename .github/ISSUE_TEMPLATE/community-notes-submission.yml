@@ -1,0 +1,56 @@
+name: Community notes submission
+description: Share session notes or ask for help adding community/notes.
+title: "[Community] Notes — "
+labels: ["community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer opening a Pull Request that adds `events/YYYY/<event_slug>/community/notes/<your-github-handle>.md`.
+        Copy [templates/community-notes-template.md](../templates/community-notes-template.md) to that path.
+        Use this issue if you need help or only have draft notes to share.
+        See [docs/community-contributions.md](../docs/community-contributions.md).
+  - type: input
+    id: event_slug
+    attributes:
+      label: Event folder or slug
+      placeholder: 2026-09-05-github-copilot-dev-days-mumbai
+    validations:
+      required: true
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub username
+      placeholder: your-handle
+    validations:
+      required: true
+  - type: textarea
+    id: sessions
+    attributes:
+      label: Sessions attended
+      placeholder: Keynote; workshop on agents; lightning talks
+    validations:
+      required: true
+  - type: textarea
+    id: notes_draft
+    attributes:
+      label: Notes draft or key takeaways
+      description: Paste a draft here, or summarize so a maintainer can help you land a PR.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Useful resources discovered
+      placeholder: Links worth exploring
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I will only modify events/YYYY/<event_slug>/community/notes/<my-github-handle>.md (plus optionally my line in that event's contributors.md).
+          required: true
+        - label: No personal contact info, private attendee details, or promotional spam.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

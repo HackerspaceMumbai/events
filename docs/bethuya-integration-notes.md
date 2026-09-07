@@ -28,7 +28,7 @@ After an event is approved in Bethuya, a draft PR could:
 
 1. Create `events/YYYY/YYYY-MM-DD-slug/`
 2. Add `event.yml`, `README.md`, `agenda.md`, `recap.md`, and `contributors.md` from templates
-3. Leave `speakers/` and `resources/` empty for the community
+3. Leave `speakers/`, `resources/`, and `community/` empty for the community
 
 ### Auto-generate metadata
 

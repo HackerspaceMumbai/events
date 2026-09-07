@@ -1,0 +1,56 @@
+name: Community photo submission
+description: Share event photos or ask for help adding your community/photos folder.
+title: "[Community] Photos — "
+labels: ["community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer opening a Pull Request under `events/YYYY/<event_slug>/community/photos/<your-github-handle>/`.
+        Copy [templates/community-photo-readme-template.md](../templates/community-photo-readme-template.md) to `events/YYYY/<event_slug>/community/photos/<your-github-handle>/README.md` and put images in `photos/`.
+        Use this issue if you need help or cannot open a PR yet.
+        See [docs/community-contributions.md](../docs/community-contributions.md).
+  - type: input
+    id: event_slug
+    attributes:
+      label: Event folder or slug
+      placeholder: 2026-09-05-github-copilot-dev-days-mumbai
+    validations:
+      required: true
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub username
+      placeholder: your-handle
+    validations:
+      required: true
+  - type: input
+    id: photo_count
+    attributes:
+      label: Approximate number of photos
+      description: Quality over quantity. Recommend at most 20 photos. Each image ≤ 500 KB preferred (max 1 MB).
+      placeholder: "8"
+  - type: textarea
+    id: description
+    attributes:
+      label: What do these photos capture?
+      description: Talks, networking, workshops, community moments, venue atmosphere — brief summary.
+      placeholder: Networking floor and workshop tables after the keynote.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Photo links (optional)
+      description: Public album or individual image URLs if you are not attaching files in a PR yet.
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I will only modify events/YYYY/<event_slug>/community/photos/<my-github-handle>/** (plus optionally my line in that event's contributors.md).
+          required: true
+        - label: No personal contact info, private attendee details, blurry/duplicate dumps, or non-event content.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

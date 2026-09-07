@@ -12,7 +12,7 @@ Bethuya = Community Operations Platform
 
 ### GitHub (this repository)
 
-Owns event metadata, agendas, speaker profiles, recaps, resource links, and community recognition.
+Owns event metadata, agendas, speaker profiles, recaps, resource links, community contributions (photos, notes, stories, highlights), and community recognition.
 
 Supports Pull Requests, reviews, and community ownership.
 
@@ -148,6 +148,7 @@ Store only the **final published** artifact for each role. Do not commit design 
 | --- | --- | --- |
 | Organizers | `media/` | `cover.jpg`, optional `banner.jpg` |
 | Speakers | `speakers/<github-handle>/` | `card.jpg` beside `speaker.md` |
+| Community | `community/photos/<github-handle>/` | Curated attendee photos (see [Community contributions](community-contributions.md)) |
 
 Invalid (creates ownership ambiguity and merge conflicts):
 
@@ -208,7 +209,7 @@ Compress before commit (Squoosh, TinyPNG, `cwebp`). Prefer finals that stay near
 - Raw camera files
 - Multiple export variants (`speaker-v1.png`, `speaker-v3-final.png`)
 - Draft revisions and temporary design assets
-- Photo galleries as bulk uploads (use optional `gallery` URI instead)
+- Photo galleries as bulk uploads under organizer `media/` (use optional `gallery` URI for external albums, or curated attendee sets under `community/photos/<github-handle>/`)
 
 ### Machine-readable metadata
 
@@ -240,19 +241,52 @@ events/YYYY/YYYY-MM-DD-event-slug/
 ├── media/
 │   ├── cover.jpg
 │   └── banner.jpg
-└── speakers/
-    └── <github-handle>/
-        ├── speaker.md
-        └── card.jpg
+├── speakers/
+│   └── <github-handle>/
+│       ├── speaker.md
+│       └── card.jpg
+├── resources/
+└── community/
+    ├── photos/<github-handle>/
+    ├── notes/<github-handle>.md
+    ├── stories/<github-handle>.md
+    └── highlights/<github-handle>.md
 ```
 
 This shape scales across recurring meetups, conference-style events, Hacktoberfest, Dev Days, and one-off community gatherings without shared marketing directories.
+
+## Community PR contract
+
+Design goal: an attendee only modifies their own community paths, so parallel community PRs do not conflict.
+
+### Allowed paths for community PRs
+
+```text
+community/photos/<github-handle>/**
+community/notes/<github-handle>.md
+community/stories/<github-handle>.md
+community/highlights/<github-handle>.md
+```
+
+`<github-handle>` should equal the Pull Request author's GitHub username.
+
+Contributors may also add their own recognition line under **Community Contributors** in `contributors.md` (or a maintainer can do so after merge).
+
+### Guidelines
+
+- Prefer links and markdown over large binaries.
+- Community photos: ≤ 20 recommended; ≤ 500 KB preferred per image (maximum 1 MB); `.jpg` or `.webp`.
+- No private attendee data.
+
+CI does not yet enforce this contract (unlike the Speaker PR contract). A future `verify-community-pr` check may mirror the speaker enforcer. Until then, reviewers rely on the PR checklist and [Community contributions](community-contributions.md).
 
 ## Recaps and contributors
 
 `recap.md` is a first-class artifact for completed events.
 
-`contributors.md` recognizes organizers, volunteers, photography, A/V, registration, and community hosts — not only speakers.
+`contributors.md` recognizes organizers, volunteers, photography, A/V, registration, community hosts, speakers, and **Community Contributors** (Photos, Notes, Stories, Highlights).
+
+Community photos, notes, stories, and highlights under `community/` are first-class event artifacts alongside speakers and resources. See [Community contributions](community-contributions.md).
 
 ## Future Hackmum consumption
 
@@ -262,5 +296,11 @@ Hackmum may later:
 - Render event pages from `README.md`, `agenda.md`, `recap.md`, and `speakers/*/speaker.md`
 - Surface resource links and gallery URLs
 - Resolve relative `assets.cover` / `assets.banner` from `event.yml` and `card` from speaker frontmatter for static-site and CDN-friendly image URLs
+- Feature community stories from `community/stories/`
+- Build event galleries from `community/photos/`
+- Surface community highlights from `community/highlights/`
+- Enhance event recaps with attendee notes and perspective from `community/notes/`
+
+**Status: documented only. Do not implement website consumption from this repository.**
 
 The notify workflow [`.github/workflows/notify-website-sync.yml`](../.github/workflows/notify-website-sync.yml) is a stub. It no-ops until `HACKMUM_SYNC_WEBHOOK` is configured. No website integration is implemented in this repository.
