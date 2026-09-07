@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Prefer opening a Pull Request that adds `community/stories/<your-github-handle>.md`.
-        Start from [templates/community-story-template.md](../templates/community-story-template.md).
+        Prefer opening a Pull Request that adds `events/YYYY/<event_slug>/community/stories/<your-github-handle>.md`.
+        Copy [templates/community-story-template.md](../templates/community-story-template.md) to that path.
         Use this issue if you need help shaping your story.
         See [docs/community-contributions.md](../docs/community-contributions.md).
   - type: input
@@ -43,7 +43,7 @@ body:
     attributes:
       label: Acknowledgements
       options:
-        - label: I will only modify community/stories/<my-github-handle>.md (plus optionally my line in contributors.md).
+        - label: I will only modify events/YYYY/<event_slug>/community/stories/<my-github-handle>.md (plus optionally my line in that event's contributors.md).
           required: true
         - label: No personal contact info, private attendee details, or non-event promotional content.
           required: true

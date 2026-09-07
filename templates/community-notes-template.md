@@ -1,6 +1,6 @@
 # Notes from [Event name]
 
-> Copy this file to `community/notes/<your-github-handle>.md` and replace the placeholders.
+> Copy this file to `events/YYYY/<event-slug>/community/notes/<your-github-handle>.md` and replace the placeholders.
 
 ## Sessions Attended
 

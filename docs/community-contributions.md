@@ -63,9 +63,11 @@ community/photos/<github-handle>/
 `README.md` should include frontmatter:
 
 ```yaml
+---
 contributor:
 github:
 event:
+---
 ```
 
 Capture talks, networking, workshops, community interactions, and venue atmosphere.

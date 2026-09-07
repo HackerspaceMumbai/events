@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Prefer opening a Pull Request that adds `community/notes/<your-github-handle>.md`.
-        Start from [templates/community-notes-template.md](../templates/community-notes-template.md).
+        Prefer opening a Pull Request that adds `events/YYYY/<event_slug>/community/notes/<your-github-handle>.md`.
+        Copy [templates/community-notes-template.md](../templates/community-notes-template.md) to that path.
         Use this issue if you need help or only have draft notes to share.
         See [docs/community-contributions.md](../docs/community-contributions.md).
   - type: input
@@ -48,7 +48,7 @@ body:
     attributes:
       label: Acknowledgements
       options:
-        - label: I will only modify community/notes/<my-github-handle>.md (plus optionally my line in contributors.md).
+        - label: I will only modify events/YYYY/<event_slug>/community/notes/<my-github-handle>.md (plus optionally my line in that event's contributors.md).
           required: true
         - label: No personal contact info, private attendee details, or promotional spam.
           required: true

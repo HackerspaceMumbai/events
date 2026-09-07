@@ -1,13 +1,13 @@
 ---
 contributor: Your Name
 github: your-github-handle
-event: 2026-09-05-github-copilot-dev-days-mumbai
+event: YYYY-MM-DD-event-slug
 ---
 
 # Photos from [Event name]
 
-> Copy this file to `community/photos/<your-github-handle>/README.md`.
-> Place image files in `community/photos/<your-github-handle>/photos/`.
+> Copy this file to `events/YYYY/<event-slug>/community/photos/<your-github-handle>/README.md`.
+> Place image files in `events/YYYY/<event-slug>/community/photos/<your-github-handle>/photos/`.
 
 ## Guidelines
 

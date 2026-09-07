@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Prefer opening a Pull Request under `community/photos/<your-github-handle>/`.
-        Copy [templates/community-photo-readme-template.md](../templates/community-photo-readme-template.md) to `README.md` and put images in `photos/`.
+        Prefer opening a Pull Request under `events/YYYY/<event_slug>/community/photos/<your-github-handle>/`.
+        Copy [templates/community-photo-readme-template.md](../templates/community-photo-readme-template.md) to `events/YYYY/<event_slug>/community/photos/<your-github-handle>/README.md` and put images in `photos/`.
         Use this issue if you need help or cannot open a PR yet.
         See [docs/community-contributions.md](../docs/community-contributions.md).
   - type: input
@@ -48,7 +48,7 @@ body:
     attributes:
       label: Acknowledgements
       options:
-        - label: I will only modify community/photos/<my-github-handle>/** (plus optionally my line in contributors.md).
+        - label: I will only modify events/YYYY/<event_slug>/community/photos/<my-github-handle>/** (plus optionally my line in that event's contributors.md).
           required: true
         - label: No personal contact info, private attendee details, blurry/duplicate dumps, or non-event content.
           required: true
