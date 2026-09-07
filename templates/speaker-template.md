@@ -2,7 +2,7 @@
 name: Anas Khan
 sessionTitle: One Interface, Infinite Agents
 github: anxkhn
-card: card.jpg
+# card: card.jpg
 linkedin: https://www.linkedin.com/in/example
 slides: https://speakerdeck.com/example
 repository: https://github.com/example/session

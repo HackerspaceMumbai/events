@@ -52,8 +52,7 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 ├── recap.md
 ├── contributors.md
 ├── media/
-│   ├── cover.jpg
-│   └── banner.jpg
+│   └── cover.jpg
 ├── speakers/
 │   └── <github-handle>/
 │       ├── speaker.md
@@ -61,7 +60,7 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 └── resources/
 ```
 
-Organizers own `media/` (event cover and optional banner). Speakers own `card.jpg` inside their own folder. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
+Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
 
 ### Event series
 
