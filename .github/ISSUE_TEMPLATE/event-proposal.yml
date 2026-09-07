@@ -1,0 +1,82 @@
+name: Event proposal
+description: Propose a meetup, workshop, conference, series stop, or other community gathering to archive.
+title: "[Event] "
+labels: ["event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose an event folder in the public archive.
+        Registrations and capacity stay in Bethuya — do not attach attendee lists.
+  - type: input
+    id: title
+    attributes:
+      label: Event title
+      placeholder: GitHub Copilot Dev Days Mumbai
+    validations:
+      required: true
+  - type: dropdown
+    id: event_type
+    attributes:
+      label: Event type
+      options:
+        - meetup
+        - workshop
+        - conference
+        - hackathon
+        - community-day
+        - series
+        - summit
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date (start date)
+      placeholder: "2026-09-05"
+    validations:
+      required: true
+  - type: input
+    id: end_date
+    attributes:
+      label: End date (multi-day only)
+      placeholder: "2026-09-06"
+  - type: input
+    id: city
+    attributes:
+      label: City
+      placeholder: Mumbai
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue (public name only)
+      placeholder: Paytm Office, Andheri East
+    validations:
+      required: true
+  - type: input
+    id: series
+    attributes:
+      label: Series id
+      description: kebab-case series identifier, or leave blank if standalone
+      placeholder: github-dev-days
+  - type: input
+    id: website
+    attributes:
+      label: Public event page
+      placeholder: https://hackmum.in
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What should the archive remember about this gathering?
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I will follow CONTRIBUTING.md and will not commit private attendee data.
+          required: true

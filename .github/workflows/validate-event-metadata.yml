@@ -1,0 +1,48 @@
+name: Validate event metadata
+
+on:
+  pull_request:
+    paths:
+      - "events/**"
+      - "schema/**"
+      - ".github/scripts/validate_event_metadata.py"
+      - ".github/workflows/validate-event-metadata.yml"
+  push:
+    branches: [main]
+    paths:
+      - "events/**"
+      - "schema/**"
+      - ".github/scripts/validate_event_metadata.py"
+
+jobs:
+  validate:
+    name: event.yml and binary size
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install --quiet pyyaml
+
+      - name: List changed files
+        id: changed
+        if: github.event_name == 'pull_request'
+        run: |
+          git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}"...HEAD > /tmp/changed-files.txt
+          cat /tmp/changed-files.txt
+
+      - name: Validate event metadata
+        run: |
+          if [ -f /tmp/changed-files.txt ]; then
+            python .github/scripts/validate_event_metadata.py --changed-files-from /tmp/changed-files.txt
+          else
+            python .github/scripts/validate_event_metadata.py
+          fi

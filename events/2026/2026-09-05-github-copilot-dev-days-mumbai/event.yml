@@ -1,0 +1,19 @@
+title: GitHub Copilot Dev Days Mumbai
+slug: github-copilot-dev-days-mumbai
+date: 2026-09-05
+city: Mumbai
+country: India
+eventType: conference
+series: github-dev-days
+community: Hackerspace Mumbai
+venue: Paytm Office
+website: https://hackmum.in
+eventPage: https://hackmum.in/past-events/
+resourcesAvailable: true
+status: completed
+timezone: Asia/Kolkata
+startTime: "10:00"
+hashtags:
+  - mumtechup
+  - DevDaysMumbai
+description: A community-hosted GitHub Copilot Dev Days session with talks, live demos, and hands-on workshops for Mumbai's builders.

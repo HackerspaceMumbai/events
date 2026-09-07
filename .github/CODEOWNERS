@@ -1,0 +1,13 @@
+# Maintainers review event-level files. Speaker folders are owned by the
+# submitting speaker; CI enforces that contract in verify-speaker-pr.yml.
+
+* @HackerspaceMumbai
+
+events/**/event.yml @HackerspaceMumbai
+events/**/README.md @HackerspaceMumbai
+events/**/agenda.md @HackerspaceMumbai
+events/**/recap.md @HackerspaceMumbai
+events/**/contributors.md @HackerspaceMumbai
+.github/ @HackerspaceMumbai
+schema/ @HackerspaceMumbai
+docs/ @HackerspaceMumbai

@@ -1,0 +1,58 @@
+name: Speaker resource submission
+description: Point maintainers at slides, code, or a recording, or ask for help adding your speaker folder.
+title: "[Speaker] "
+labels: ["speaker"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer opening a Pull Request that only changes `speakers/<your-github-handle>/**`.
+        Use this issue if you need help or only have links to share.
+  - type: input
+    id: event_slug
+    attributes:
+      label: Event folder or slug
+      placeholder: 2026-09-05-github-copilot-dev-days-mumbai
+    validations:
+      required: true
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub username
+      placeholder: anas-khan
+    validations:
+      required: true
+  - type: input
+    id: session_title
+    attributes:
+      label: Session title
+      placeholder: One Interface, Infinite Agents
+    validations:
+      required: true
+  - type: input
+    id: slides
+    attributes:
+      label: Slides URL
+      placeholder: https://speakerdeck.com/...
+  - type: input
+    id: repository
+    attributes:
+      label: Session repository URL
+      placeholder: https://github.com/...
+  - type: input
+    id: recording
+    attributes:
+      label: Recording URL
+      placeholder: https://youtube.com/...
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Abstract, takeaways, or anything else that belongs in speaker.md
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I understand speaker PRs may only modify speakers/<my-github-handle>/**.
+          required: true

@@ -1,0 +1,31 @@
+name: Notify website sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "events/**"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    name: Stub Hackmum sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Notify hackmum.in (optional)
+        env:
+          WEBHOOK: ${{ secrets.HACKMUM_SYNC_WEBHOOK }}
+        run: |
+          if [ -z "$WEBHOOK" ]; then
+            echo "HACKMUM_SYNC_WEBHOOK is not configured."
+            echo "This workflow is a stub. Event metadata changed on main; no website sync was sent."
+            exit 0
+          fi
+          echo "Posting a sync ping to the configured Hackmum webhook."
+          curl --fail --silent --show-error \
+            --header "Content-Type: application/json" \
+            --data "{\"repository\":\"${GITHUB_REPOSITORY}\",\"sha\":\"${GITHUB_SHA}\",\"ref\":\"${GITHUB_REF}\"}" \
+            "$WEBHOOK"

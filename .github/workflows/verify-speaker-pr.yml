@@ -1,0 +1,44 @@
+name: Verify speaker PR
+
+on:
+  pull_request:
+    paths:
+      - "events/**"
+
+jobs:
+  speaker-contract:
+    name: speakers may only edit their own folder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect PR metadata
+        id: meta
+        env:
+          ACTOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          git diff --name-only --diff-filter=ACMRD "${{ github.event.pull_request.base.sha }}"...HEAD > /tmp/changed-files.txt
+          labels=$(jq -r '[.pull_request.labels[].name] | join(",")' "$GITHUB_EVENT_PATH")
+          echo "labels=$labels" >> "$GITHUB_OUTPUT"
+          echo "actor=$ACTOR" >> "$GITHUB_OUTPUT"
+          echo "Changed files:"
+          cat /tmp/changed-files.txt
+          echo "Labels: $labels"
+
+      - name: Enforce speaker path contract
+        env:
+          ACTOR: ${{ steps.meta.outputs.actor }}
+          LABELS: ${{ steps.meta.outputs.labels }}
+        run: |
+          python .github/scripts/verify_speaker_pr.py \
+            --actor "$ACTOR" \
+            --labels "$LABELS" \
+            --files-from /tmp/changed-files.txt
