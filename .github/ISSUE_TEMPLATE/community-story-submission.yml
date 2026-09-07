@@ -1,0 +1,51 @@
+name: Community story submission
+description: Share an attendee experience story or ask for help adding community/stories.
+title: "[Community] Story — "
+labels: ["community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer opening a Pull Request that adds `community/stories/<your-github-handle>.md`.
+        Start from [templates/community-story-template.md](../templates/community-story-template.md).
+        Use this issue if you need help shaping your story.
+        See [docs/community-contributions.md](../docs/community-contributions.md).
+  - type: input
+    id: event_slug
+    attributes:
+      label: Event folder or slug
+      placeholder: 2026-09-05-github-copilot-dev-days-mumbai
+    validations:
+      required: true
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub username
+      placeholder: your-handle
+    validations:
+      required: true
+  - type: input
+    id: story_title
+    attributes:
+      label: Story title
+      placeholder: My Dev Days Mumbai Experience
+    validations:
+      required: true
+  - type: textarea
+    id: story_draft
+    attributes:
+      label: Story draft
+      description: Focus on community impact — what brought you, what you learned, people you met, what happens next.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I will only modify community/stories/<my-github-handle>.md (plus optionally my line in contributors.md).
+          required: true
+        - label: No personal contact info, private attendee details, or non-event promotional content.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

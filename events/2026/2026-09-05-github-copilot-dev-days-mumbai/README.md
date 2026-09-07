@@ -33,13 +33,17 @@ See [agenda.md](agenda.md). Session details welcome community updates.
 
 Add your session under [speakers/](speakers/) using your GitHub username as the folder name. See the [speaker workflow](../../../CONTRIBUTING.md#speaker-workflow).
 
+## Community
+
+Attendees contribute photos, notes, stories, and highlights under [community/](community/). See [Community contributions](../../../docs/community-contributions.md) and the [community workflow](../../../CONTRIBUTING.md#community-workflow).
+
 ## Recap
 
 See [recap.md](recap.md).
 
 ## Contributors
 
-See [contributors.md](contributors.md). Organizers, volunteers, photography, A/V, registration, and hosts belong there — not only speakers.
+See [contributors.md](contributors.md). Organizers, volunteers, speakers, and community contributors (photos, notes, stories, highlights) belong there.
 
 ## Resources
 

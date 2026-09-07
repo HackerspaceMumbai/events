@@ -32,7 +32,7 @@ Bethuya = Community Operations Platform
 .
 ├── .github/                 GitHub issue forms, PR template, and CI
 ├── docs/                    Architecture, taxonomy, Phase 2 recommendations, and integration notes
-├── templates/               Starter files for events, series, and speakers
+├── templates/               Starter files for events, series, speakers, and community contributions
 ├── schema/                  Machine-readable event.yml contract
 ├── events/
 │   ├── 2026/
@@ -57,10 +57,15 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 │   └── <github-handle>/
 │       ├── speaker.md
 │       └── card.jpg
-└── resources/
+├── resources/
+└── community/
+    ├── photos/
+    ├── notes/
+    ├── stories/
+    └── highlights/
 ```
 
-Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
+Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. Attendees contribute under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
 
 ### Event series
 
@@ -92,6 +97,8 @@ Unknown types fail CI. See [docs/event-taxonomy.md](docs/event-taxonomy.md).
 ## Documentation
 
 - [Architecture and contracts](docs/architecture-and-contracts.md)
+- [Community contributions](docs/community-contributions.md)
+- [Event messaging](docs/event-messaging.md) (closing slides and follow-up email copy)
 - [Event taxonomy](docs/event-taxonomy.md)
 - [Phase 2 recommendations](docs/recommendations-phase-2.md)
 - [Bethuya integration notes](docs/bethuya-integration-notes.md) (documented only)
@@ -107,11 +114,15 @@ Speaker submissions are conflict-free: each speaker only changes their own folde
 
 CI rejects speaker PRs that touch `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder.
 
+## Community workflow
+
+Attendees contribute photos, notes, stories, and highlights under `community/<type>/` using their GitHub handle. See [Community contributions](docs/community-contributions.md) and [CONTRIBUTING.md](CONTRIBUTING.md#community-workflow).
+
 ## How to contribute
 
-- **Organizers:** create the event folder, metadata, and agenda. See [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Organizers:** create the event folder, metadata, agenda, and empty `community/` tree. See [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Speakers:** add your session folder and resources.
-- **Community:** improve recaps, share links, and recognize volunteers in `contributors.md`.
+- **Community:** add photos, notes, stories, and highlights under `community/`; improve recaps and recognize people in `contributors.md`.
 
 Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 

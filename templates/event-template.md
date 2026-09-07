@@ -37,13 +37,25 @@ See [agenda.md](agenda.md).
 
 Speakers add their own folders under [speakers/](speakers/). See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
+## Community
+
+Attendees contribute photos, notes, stories, and highlights under [community/](community/). See [Community contributions](../docs/community-contributions.md).
+
+```text
+community/
+├── photos/
+├── notes/
+├── stories/
+└── highlights/
+```
+
 ## Recap
 
 See [recap.md](recap.md).
 
 ## Contributors
 
-See [contributors.md](contributors.md).
+See [contributors.md](contributors.md). Include a **Community Contributors** section (Photos, Notes, Stories, Highlights).
 
 ## Resources
 

@@ -31,3 +31,23 @@ This archive celebrates every kind of community contribution, not only talks on 
 ## Speakers
 
 Speakers publish their own folders under [speakers/](speakers/). List published sessions here as they land.
+
+## Community Contributors
+
+Attendees publish under [community/](community/). Add your GitHub handle when your PR lands.
+
+### Photos
+
+- _Add GitHub handles linked to `community/photos/<handle>/`._
+
+### Notes
+
+- _Add GitHub handles linked to `community/notes/<handle>.md`._
+
+### Stories
+
+- _Add GitHub handles linked to `community/stories/<handle>.md`._
+
+### Highlights
+
+- _Add GitHub handles linked to `community/highlights/<handle>.md`._
