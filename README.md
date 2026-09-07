@@ -31,7 +31,7 @@ Bethuya = Community Operations Platform
 ```text
 .
 ├── .github/                 GitHub issue forms, PR template, and CI
-├── docs/                    Architecture, taxonomy, and future integration notes
+├── docs/                    Architecture, taxonomy, Phase 2 recommendations, and integration notes
 ├── templates/               Starter files for events, series, and speakers
 ├── schema/                  Machine-readable event.yml contract
 ├── events/
@@ -81,6 +81,13 @@ Valid `eventType` values in `event.yml`:
 | `summit` | Named summits |
 
 Unknown types fail CI. See [docs/event-taxonomy.md](docs/event-taxonomy.md).
+
+## Documentation
+
+- [Architecture and contracts](docs/architecture-and-contracts.md)
+- [Event taxonomy](docs/event-taxonomy.md)
+- [Phase 2 recommendations](docs/recommendations-phase-2.md)
+- [Bethuya integration notes](docs/bethuya-integration-notes.md) (documented only)
 
 ## Speaker workflow
 
