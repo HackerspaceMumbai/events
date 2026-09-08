@@ -10,13 +10,20 @@ Help us preserve the story of this event.
 
 The Hackerspace Mumbai Events Archive is community-maintained.
 
-Have any of the following?
+Have something to share?
 
-- Photos
-- Session Notes
-- Key Takeaways
-- Event Stories
-- Useful Resources
+📸 Photos
+📝 Notes
+💡 Highlights
+❤️ Stories
+🔗 LinkedIn Posts
+🐦 X / Twitter Threads
+🎥 Videos
+📷 Public Photo Albums
+
+Not comfortable uploading files?
+No problem.
+Links to public posts, galleries, blogs, and videos are welcome.
 
 Submit a Pull Request and become part of the event archive.
 
@@ -36,7 +43,9 @@ Together we build the community archive.
 
 **Help us preserve the story of this event.**
 
-Photos · Notes · Stories · Highlights · Resources
+Photos · Notes · Stories · Highlights · Social · Resources
+
+Have something to share? Links to public posts, galleries, blogs, and videos are welcome — no file uploads required.
 
 Open a PR: https://github.com/HackerspaceMumbai/events
 

@@ -62,7 +62,8 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
     ├── photos/
     ├── notes/
     ├── stories/
-    └── highlights/
+    ├── highlights/
+    └── social/
 ```
 
 Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. Attendees contribute under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
@@ -116,13 +117,13 @@ CI rejects speaker PRs that touch `event.yml`, `README.md`, `agenda.md`, `recap.
 
 ## Community workflow
 
-Attendees contribute photos, notes, stories, and highlights under `community/<type>/` using their GitHub handle. See [Community contributions](docs/community-contributions.md) and [CONTRIBUTING.md](CONTRIBUTING.md#community-workflow).
+Attendees contribute photos, notes, stories, highlights, and social links under `community/<type>/` using their GitHub handle. Links to public posts, galleries, blogs, and videos are welcome — no file uploads required. See [Community contributions](docs/community-contributions.md) and [CONTRIBUTING.md](CONTRIBUTING.md#community-workflow).
 
 ## How to contribute
 
 - **Organizers:** create the event folder, metadata, agenda, and empty `community/` tree. See [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Speakers:** add your session folder and resources.
-- **Community:** add photos, notes, stories, and highlights under `community/`; improve recaps and recognize people in `contributors.md`.
+- **Community:** add photos, notes, stories, highlights, and social links under `community/`; improve recaps and recognize people in `contributors.md`.
 
 Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 

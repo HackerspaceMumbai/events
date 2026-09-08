@@ -39,14 +39,17 @@ Speakers add their own folders under [speakers/](speakers/). See [CONTRIBUTING.m
 
 ## Community
 
-Attendees contribute photos, notes, stories, and highlights under [community/](community/). See [Community contributions](../docs/community-contributions.md).
+Attendees contribute photos, notes, stories, highlights, and social links under [community/](community/). See [Community contributions](../docs/community-contributions.md).
+
+Already shared publicly? Links to LinkedIn posts, X/Twitter threads, blogs, videos, and public photo albums are welcome — no file uploads required.
 
 ```text
 community/
 ├── photos/
 ├── notes/
 ├── stories/
-└── highlights/
+├── highlights/
+└── social/
 ```
 
 ## Recap
@@ -55,7 +58,7 @@ See [recap.md](recap.md).
 
 ## Contributors
 
-See [contributors.md](contributors.md). Include a **Community Contributors** section (Photos, Notes, Stories, Highlights).
+See [contributors.md](contributors.md). Include a **Community Contributors** section (Photos, Notes, Stories, Highlights, Social Contributions).
 
 ## Resources
 
