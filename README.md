@@ -52,7 +52,12 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 ├── recap.md
 ├── contributors.md
 ├── media/
-│   └── cover.jpg
+│   ├── photos/              Official event photography
+│   ├── videos/              Official recordings and playlists
+│   ├── social/              Official Hackerspace Mumbai posts
+│   ├── cover.jpg            Primary event identity graphic
+│   ├── banner.jpg           Optional secondary promotional banner
+│   └── README.md
 ├── speakers/
 │   └── <github-handle>/
 │       ├── speaker.md
@@ -66,7 +71,7 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
     └── social/
 ```
 
-Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. Attendees contribute under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
+`media/` is the canonical archive of official event artifacts maintained only by organizers and volunteers. It is consumed by [hackmum.in](https://hackmum.in) for event galleries, past-event pages, social content, and recaps. Speakers own speaker-specific artifacts under `speakers/<github-handle>/`; attendees and community members contribute perspectives under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
 
 ### Event series
 
@@ -114,6 +119,12 @@ Speaker submissions are conflict-free: each speaker only changes their own folde
 4. Open a Pull Request that **only** modifies `speakers/<your-github-handle>/**`.
 
 CI rejects speaker PRs that touch `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder.
+
+## Ownership model
+
+- **`speakers/`** — speaker-owned artifacts such as profiles, cards, slides, repositories, and recordings.
+- **`media/`** — official event media maintained only by organizers and volunteers.
+- **`community/`** — attendee and community-contributed perspectives, including notes, stories, highlights, photos, and social links.
 
 ## Community workflow
 

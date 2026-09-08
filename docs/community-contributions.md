@@ -6,6 +6,24 @@ Speakers contribute knowledge. Attendees contribute perspective. The Events Arch
 
 Community artifacts live under each event’s `community/` folder and are first-class alongside speakers, recaps, and resources.
 
+## Official Media vs Community Contributions
+
+### Official Media
+
+Official event photos, videos, and Hackerspace Mumbai social content belong in the event’s `media/` folder. This is the canonical official media archive used by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps. It is maintained only by organizers and volunteers. Speaker-owned recordings and other speaker artifacts belong under `speakers/<github-handle>/`.
+
+### Community Contributions
+
+Attendee-created content belongs in the event’s `community/` folder, including:
+
+- Notes
+- Stories
+- Highlights
+- Social posts
+- Personal photos
+
+Community contributions preserve personal perspectives and should not be placed in `media/` merely because they relate to the event.
+
 ## Folder layout
 
 ```text
