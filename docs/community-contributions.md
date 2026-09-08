@@ -6,6 +6,24 @@ Speakers contribute knowledge. Attendees contribute perspective. The Events Arch
 
 Community artifacts live under each event’s `community/` folder and are first-class alongside speakers, recaps, and resources.
 
+## Official Media vs Community Contributions
+
+### Official Media
+
+Official event photos, videos, and Hackerspace Mumbai social content belong in the event’s `media/` folder. This is the canonical official media archive used by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps. It is maintained only by organizers and volunteers. Speaker-owned recordings and other speaker artifacts belong under `speakers/<github-handle>/`.
+
+### Community Contributions
+
+Attendee-created content belongs in the event’s `community/` folder, including:
+
+- Notes
+- Stories
+- Highlights
+- Social posts
+- Personal photos
+
+Community contributions preserve personal perspectives and should not be placed in `media/` merely because they relate to the event.
+
 ## Folder layout
 
 ```text
@@ -18,7 +36,9 @@ community/
 │   └── <github-handle>.md
 ├── stories/
 │   └── <github-handle>.md
-└── highlights/
+├── highlights/
+│   └── <github-handle>.md
+└── social/
     └── <github-handle>.md
 ```
 
@@ -28,6 +48,7 @@ Starters:
 - [templates/community-notes-template.md](../templates/community-notes-template.md)
 - [templates/community-story-template.md](../templates/community-story-template.md)
 - [templates/community-highlight-template.md](../templates/community-highlight-template.md)
+- [templates/community-social-template.md](../templates/community-social-template.md)
 
 ## What to share
 
@@ -39,6 +60,7 @@ Starters:
 - Community stories
 - Links to demos and experiments
 - Short highlights (favorite session, demo, discussion)
+- Public social posts, blogs, videos, and photo albums
 
 ## What not to share
 
@@ -94,6 +116,35 @@ Path: `community/highlights/<github-handle>.md`
 
 Short-form memories: favorite session, demo, resource, or discussion.
 
+## Social Contributions
+
+Already shared your experience publicly?
+
+You can contribute links to:
+
+- LinkedIn posts
+- X/Twitter threads
+- Blog posts
+- YouTube videos
+- Public photo galleries
+
+No file uploads required.
+
+Simply submit a Pull Request containing links.
+
+This is the recommended contribution path for attendees who already posted content elsewhere.
+
+Path: `community/social/<github-handle>.md`
+
+Start from [templates/community-social-template.md](../templates/community-social-template.md). Include frontmatter:
+
+```yaml
+---
+contributor: your-github-handle
+event: event-slug
+---
+```
+
 ## How to contribute
 
 1. Find the event under `events/YYYY/`.
@@ -106,9 +157,10 @@ If you need help, open an issue with:
 - [Community photo submission](../.github/ISSUE_TEMPLATE/community-photo-submission.yml)
 - [Community notes submission](../.github/ISSUE_TEMPLATE/community-notes-submission.yml)
 - [Community story submission](../.github/ISSUE_TEMPLATE/community-story-submission.yml)
+- [Community social submission](../.github/ISSUE_TEMPLATE/community-social-submission.yml)
 
 See also [CONTRIBUTING.md](../CONTRIBUTING.md) and [Event messaging](event-messaging.md) for closing-slide and email copy.
 
 ## Recognition
 
-Everyone who contributes should be listed in the event’s `contributors.md` under **Community Contributors** (Photos, Notes, Stories, Highlights).
+Everyone who contributes should be listed in the event’s `contributors.md` under **Community Contributors** (Photos, Notes, Stories, Highlights, Social Contributions). Contributors are recognized regardless of whether they uploaded files or shared links.

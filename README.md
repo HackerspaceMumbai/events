@@ -52,7 +52,12 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 ├── recap.md
 ├── contributors.md
 ├── media/
-│   └── cover.jpg
+│   ├── photos/              Official event photography
+│   ├── videos/              Official recordings and playlists
+│   ├── social/              Official Hackerspace Mumbai posts
+│   ├── cover.jpg            Primary event identity graphic
+│   ├── banner.jpg           Optional secondary promotional banner
+│   └── README.md
 ├── speakers/
 │   └── <github-handle>/
 │       ├── speaker.md
@@ -62,10 +67,11 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
     ├── photos/
     ├── notes/
     ├── stories/
-    └── highlights/
+    ├── highlights/
+    └── social/
 ```
 
-Organizers own `media/` (event cover strongly recommended; optional `banner.jpg` also allowed). Speakers own `card.jpg` inside their own folder. Attendees contribute under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
+`media/` is the canonical archive of official event artifacts maintained only by organizers and volunteers. It is consumed by [hackmum.in](https://hackmum.in) for event galleries, past-event pages, social content, and recaps. Speakers own speaker-specific artifacts under `speakers/<github-handle>/`; attendees and community members contribute perspectives under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
 
 ### Event series
 
@@ -114,15 +120,21 @@ Speaker submissions are conflict-free: each speaker only changes their own folde
 
 CI rejects speaker PRs that touch `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder.
 
+## Ownership model
+
+- **`speakers/`** — speaker-owned artifacts such as profiles, cards, slides, repositories, and recordings.
+- **`media/`** — official event media maintained only by organizers and volunteers.
+- **`community/`** — attendee and community-contributed perspectives, including notes, stories, highlights, photos, and social links.
+
 ## Community workflow
 
-Attendees contribute photos, notes, stories, and highlights under `community/<type>/` using their GitHub handle. See [Community contributions](docs/community-contributions.md) and [CONTRIBUTING.md](CONTRIBUTING.md#community-workflow).
+Attendees contribute photos, notes, stories, highlights, and social links under `community/<type>/` using their GitHub handle. Links to public posts, galleries, blogs, and videos are welcome — no file uploads required. See [Community contributions](docs/community-contributions.md) and [CONTRIBUTING.md](CONTRIBUTING.md#community-workflow).
 
 ## How to contribute
 
 - **Organizers:** create the event folder, metadata, agenda, and empty `community/` tree. See [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Speakers:** add your session folder and resources.
-- **Community:** add photos, notes, stories, and highlights under `community/`; improve recaps and recognize people in `contributors.md`.
+- **Community:** add photos, notes, stories, highlights, and social links under `community/`; improve recaps and recognize people in `contributors.md`.
 
 Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 

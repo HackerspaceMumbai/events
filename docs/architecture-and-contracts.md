@@ -12,7 +12,7 @@ Bethuya = Community Operations Platform
 
 ### GitHub (this repository)
 
-Owns event metadata, agendas, speaker profiles, recaps, resource links, community contributions (photos, notes, stories, highlights), and community recognition.
+Owns event metadata, agendas, speaker profiles, recaps, resource links, community contributions (photos, notes, stories, highlights, social), and community recognition.
 
 Supports Pull Requests, reviews, and community ownership.
 
@@ -146,9 +146,9 @@ Store only the **final published** artifact for each role. Do not commit design 
 
 | Owner | Location | Examples |
 | --- | --- | --- |
-| Organizers | `media/` | `cover.jpg`, optional `banner.jpg` |
+| Organizers and volunteers | `media/` | Official photos, videos/recording links, social posts, `cover.jpg`, optional `banner.jpg` |
 | Speakers | `speakers/<github-handle>/` | `card.jpg` beside `speaker.md` |
-| Community | `community/photos/<github-handle>/` | Curated attendee photos (see [Community contributions](community-contributions.md)) |
+| Community | `community/photos/<github-handle>/`, `community/social/<github-handle>.md` | Curated attendee photos and public social links (see [Community contributions](community-contributions.md)) |
 
 Invalid (creates ownership ambiguity and merge conflicts):
 
@@ -158,10 +158,13 @@ shared-assets/
 event-root/card.jpg
 ```
 
-### Event assets (organizer-owned)
+### Official event media assets
 
 ```text
 media/
+├── photos/      # official event photography
+├── videos/      # official recording and playlist links
+├── social/      # official Hackerspace Mumbai posts and assets
 ├── cover.jpg    # strongly recommended
 └── banner.jpg   # optional
 ```
@@ -169,7 +172,10 @@ media/
 - Use `.jpg` or `.webp`.
 - `cover.jpg` is the primary event identity graphic (registration art, official promotional cover).
 - `banner.jpg` is optional (sponsor announcements, secondary promotional strips).
-- Maintained by organizers; speakers must not modify `media/`.
+- This is the canonical official event media archive for hackmum.in.
+- Maintained only by organizers and volunteers.
+- Speakers own speaker-specific artifacts, including speaker recordings, under `speakers/<github-handle>/`.
+- Community perspectives and attendee-created content belong under `community/`, not `media/`.
 
 ### Speaker assets (speaker-owned)
 
@@ -250,7 +256,8 @@ events/YYYY/YYYY-MM-DD-event-slug/
     ├── photos/<github-handle>/
     ├── notes/<github-handle>.md
     ├── stories/<github-handle>.md
-    └── highlights/<github-handle>.md
+    ├── highlights/<github-handle>.md
+    └── social/<github-handle>.md
 ```
 
 This shape scales across recurring meetups, conference-style events, Hacktoberfest, Dev Days, and one-off community gatherings without shared marketing directories.
@@ -266,6 +273,7 @@ community/photos/<github-handle>/**
 community/notes/<github-handle>.md
 community/stories/<github-handle>.md
 community/highlights/<github-handle>.md
+community/social/<github-handle>.md
 ```
 
 `<github-handle>` should equal the Pull Request author's GitHub username.
@@ -276,6 +284,7 @@ Contributors may also add their own recognition line under **Community Contribut
 
 - Prefer links and markdown over large binaries.
 - Community photos: ≤ 20 recommended; ≤ 500 KB preferred per image (maximum 1 MB); `.jpg` or `.webp`.
+- Social contributions: public links only (LinkedIn, X/Twitter, blogs, videos, galleries); no file uploads required.
 - No private attendee data.
 
 CI does not yet enforce this contract (unlike the Speaker PR contract). A future `verify-community-pr` check may mirror the speaker enforcer. Until then, reviewers rely on the PR checklist and [Community contributions](community-contributions.md).
@@ -284,9 +293,9 @@ CI does not yet enforce this contract (unlike the Speaker PR contract). A future
 
 `recap.md` is a first-class artifact for completed events.
 
-`contributors.md` recognizes organizers, volunteers, photography, A/V, registration, community hosts, speakers, and **Community Contributors** (Photos, Notes, Stories, Highlights).
+`contributors.md` recognizes organizers, volunteers, photography, A/V, registration, community hosts, speakers, and **Community Contributors** (Photos, Notes, Stories, Highlights, Social Contributions).
 
-Community photos, notes, stories, and highlights under `community/` are first-class event artifacts alongside speakers and resources. See [Community contributions](community-contributions.md).
+Community photos, notes, stories, highlights, and social contributions under `community/` are first-class event artifacts alongside speakers and resources. See [Community contributions](community-contributions.md).
 
 ## Future Hackmum consumption
 
@@ -300,6 +309,7 @@ Hackmum may later:
 - Build event galleries from `community/photos/`
 - Surface community highlights from `community/highlights/`
 - Enhance event recaps with attendee notes and perspective from `community/notes/`
+- Surface community social links from `community/social/`
 
 **Status: documented only. Do not implement website consumption from this repository.**
 

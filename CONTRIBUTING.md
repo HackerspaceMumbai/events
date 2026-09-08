@@ -15,7 +15,7 @@ Create the event, add the agenda, add speakers, then publish.
    - For tours or multi-stop initiatives, start from [templates/series-template.md](templates/series-template.md).
    - Place the folder at `events/YYYY/YYYY-MM-DD-slug/` (single or multi-day) or `events/YYYY/YYYY-MM-slug/` (series).
    - Fill `event.yml` with required metadata. Use a documented `eventType` from [docs/event-taxonomy.md](docs/event-taxonomy.md).
-   - Scaffold an empty `community/` tree (`photos/`, `notes/`, `stories/`, `highlights/`) so attendees can contribute after the event.
+   - Scaffold an empty `community/` tree (`photos/`, `notes/`, `stories/`, `highlights/`, `social/`) so attendees can contribute after the event.
 
 2. **Add the agenda**
    - Edit `agenda.md` with sessions, times, and rooms as they become public.
@@ -52,9 +52,11 @@ CI enforces this contract so maintainers can merge many speaker submissions with
 
 ## Community workflow
 
-Attendees and community members contribute perspective: photos, notes, stories, and highlights.
+Attendees and community members contribute perspective: photos, notes, stories, highlights, and social links.
 
 Full guidelines: [docs/community-contributions.md](docs/community-contributions.md).
+
+Already shared publicly? Links to LinkedIn posts, X/Twitter threads, blogs, videos, and public photo albums are welcome — no file uploads required. That is the recommended path when you already posted elsewhere.
 
 1. **Find the event** under `events/YYYY/`.
 2. **Add your artifact** under your GitHub handle only:
@@ -62,6 +64,7 @@ Full guidelines: [docs/community-contributions.md](docs/community-contributions.
    - Notes: `community/notes/<your-github-handle>.md` — start from [templates/community-notes-template.md](templates/community-notes-template.md)
    - Stories: `community/stories/<your-github-handle>.md` — start from [templates/community-story-template.md](templates/community-story-template.md)
    - Highlights: `community/highlights/<your-github-handle>.md` — start from [templates/community-highlight-template.md](templates/community-highlight-template.md)
+   - Social: `community/social/<your-github-handle>.md` — start from [templates/community-social-template.md](templates/community-social-template.md)
 3. **Recognition** — add yourself under **Community Contributors** in `contributors.md`, or ask a maintainer to.
 4. **Submit a PR** labeled `community`. Prefer a PR; use the community issue forms if you need help.
 
@@ -75,7 +78,7 @@ Keep personal data out of this archive. Do not commit attendee lists, emails, or
 | --- | --- |
 | `organizer` | Maintainer or organizer work that may touch shared event files and speaker folders |
 | `speaker` | Speaker-owned folder only |
-| `community` | Community photos, notes, stories, highlights, recaps, links, docs, and other knowledge-base improvements |
+| `community` | Community photos, notes, stories, highlights, social links, recaps, docs, and other knowledge-base improvements |
 
 ## Questions
 
