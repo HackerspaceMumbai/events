@@ -10,7 +10,7 @@ Community artifacts live under each event’s `community/` folder and are first-
 
 ### Official Media
 
-Official event photos, videos, and Hackerspace Mumbai social content belong in the event’s `media/` folder. This is the canonical official media archive used by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps. It is maintained by organizers, volunteers, official photographers, and speakers contributing official event assets.
+Official event photos, videos, and Hackerspace Mumbai social content belong in the event’s `media/` folder. This is the canonical official media archive used by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps. It is maintained only by organizers and volunteers. Speaker-owned recordings and other speaker artifacts belong under `speakers/<github-handle>/`.
 
 ### Community Contributions
 

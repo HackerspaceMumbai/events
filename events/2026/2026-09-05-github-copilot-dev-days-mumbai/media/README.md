@@ -1,6 +1,6 @@
 # Official event media
 
-This folder is the canonical archive of official event media for Hackerspace Mumbai. It is maintained by organizers, volunteers, official photographers, and speakers contributing official event assets, and is intended for consumption by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps.
+This folder is the canonical archive of official event media for Hackerspace Mumbai. It is maintained only by organizers and volunteers, and is intended for consumption by [hackmum.in](https://hackmum.in) for galleries, past-event pages, social content, and recaps.
 
 ## Ownership
 

@@ -146,7 +146,7 @@ Store only the **final published** artifact for each role. Do not commit design 
 
 | Owner | Location | Examples |
 | --- | --- | --- |
-| Organizers, volunteers, official photographers, and speakers contributing official assets | `media/` | Official photos, videos/recording links, social posts, `cover.jpg`, optional `banner.jpg` |
+| Organizers and volunteers | `media/` | Official photos, videos/recording links, social posts, `cover.jpg`, optional `banner.jpg` |
 | Speakers | `speakers/<github-handle>/` | `card.jpg` beside `speaker.md` |
 | Community | `community/photos/<github-handle>/`, `community/social/<github-handle>.md` | Curated attendee photos and public social links (see [Community contributions](community-contributions.md)) |
 
@@ -173,7 +173,8 @@ media/
 - `cover.jpg` is the primary event identity graphic (registration art, official promotional cover).
 - `banner.jpg` is optional (sponsor announcements, secondary promotional strips).
 - This is the canonical official event media archive for hackmum.in.
-- Maintained by organizers, volunteers, official photographers, and speakers contributing official event assets.
+- Maintained only by organizers and volunteers.
+- Speakers own speaker-specific artifacts, including speaker recordings, under `speakers/<github-handle>/`.
 - Community perspectives and attendee-created content belong under `community/`, not `media/`.
 
 ### Speaker assets (speaker-owned)

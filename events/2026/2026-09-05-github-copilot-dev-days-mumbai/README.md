@@ -35,7 +35,7 @@ Add your session under [speakers/](speakers/) using your GitHub username as the 
 
 ## Official media
 
-Official event photos, videos, and Hackerspace Mumbai social content are archived under [media/](media/). Attendee and community perspectives belong under [community/](community/).
+Official event photos, videos, and Hackerspace Mumbai social content are archived under [media/](media/), maintained only by organizers and volunteers. Speaker-owned recordings and other speaker artifacts belong under [speakers/](speakers/); attendee and community perspectives belong under [community/](community/).
 
 ## Community
 

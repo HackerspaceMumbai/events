@@ -71,7 +71,7 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
     └── social/
 ```
 
-`media/` is the canonical archive of official event artifacts maintained by organizers, volunteers, photographers, and speakers contributing official assets. It is consumed by [hackmum.in](https://hackmum.in) for event galleries, past-event pages, social content, and recaps. Speakers own speaker-specific artifacts under `speakers/<github-handle>/`; attendees and community members contribute perspectives under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
+`media/` is the canonical archive of official event artifacts maintained only by organizers and volunteers. It is consumed by [hackmum.in](https://hackmum.in) for event galleries, past-event pages, social content, and recaps. Speakers own speaker-specific artifacts under `speakers/<github-handle>/`; attendees and community members contribute perspectives under `community/`. See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard) and [Community contributions](docs/community-contributions.md).
 
 ### Event series
 
@@ -123,7 +123,7 @@ CI rejects speaker PRs that touch `event.yml`, `README.md`, `agenda.md`, `recap.
 ## Ownership model
 
 - **`speakers/`** — speaker-owned artifacts such as profiles, cards, slides, repositories, and recordings.
-- **`media/`** — official event media maintained by organizers, volunteers, photographers, and speakers contributing official assets.
+- **`media/`** — official event media maintained only by organizers and volunteers.
 - **`community/`** — attendee and community-contributed perspectives, including notes, stories, highlights, photos, and social links.
 
 ## Community workflow
