@@ -55,6 +55,8 @@ events/2026/2026-09-05-github-copilot-dev-days-mumbai/
 │   ├── photos/              Official event photography
 │   ├── videos/              Official recordings and playlists
 │   ├── social/              Official Hackerspace Mumbai posts
+│   ├── cover.jpg            Primary event identity graphic
+│   ├── banner.jpg           Optional secondary promotional banner
 │   └── README.md
 ├── speakers/
 │   └── <github-handle>/

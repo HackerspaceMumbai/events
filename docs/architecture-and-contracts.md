@@ -158,7 +158,7 @@ shared-assets/
 event-root/card.jpg
 ```
 
-### Event assets (organizer-owned)
+### Official event media assets
 
 ```text
 media/

@@ -1,7 +1,5 @@
 # Community Contributions
 
-## Community Contributions
-
 The community folder contains attendee and community perspectives:
 
 - Notes
