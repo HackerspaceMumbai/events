@@ -1,0 +1,53 @@
+name: Community social submission
+description: Share links to public posts, blogs, videos, or galleries related to an event.
+title: "[Community] Social — "
+labels: ["community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer opening a Pull Request that adds `events/YYYY/<event_slug>/community/social/<your-github-handle>.md`.
+        Copy [templates/community-social-template.md](../templates/community-social-template.md) to that path.
+        No file uploads required — links to public posts, galleries, blogs, and videos are welcome.
+        Use this issue if you need help landing a PR.
+        See [docs/community-contributions.md](../docs/community-contributions.md).
+  - type: input
+    id: event_slug
+    attributes:
+      label: Event folder or slug
+      placeholder: 2026-09-05-github-copilot-dev-days-mumbai
+    validations:
+      required: true
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub username
+      placeholder: your-handle
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Public links to share
+      description: LinkedIn posts, X/Twitter threads, blog posts, YouTube videos, public photo albums, or other event recaps.
+      placeholder: |
+        LinkedIn: https://...
+        Blog: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Optional context
+      description: Brief note for future readers about what these links cover.
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I will only modify events/YYYY/<event_slug>/community/social/<my-github-handle>.md (plus optionally my line in that event's contributors.md).
+          required: true
+        - label: Links are public and event-related. No personal contact info, private attendee details, or promotional spam.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

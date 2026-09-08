@@ -2,7 +2,7 @@
 
 - [ ] Organizer: new or updated event metadata, agenda, or structure
 - [ ] Speaker: my `speakers/<github-handle>/` folder only
-- [ ] Community: photos, notes, stories, highlights, recap, links, contributors, or docs
+- [ ] Community: photos, notes, stories, highlights, social links, recap, links, contributors, or docs
 
 ## Summary
 
@@ -35,7 +35,9 @@
   - `community/notes/<my-handle>.md`
   - `community/stories/<my-handle>.md`
   - `community/highlights/<my-handle>.md`
+  - `community/social/<my-handle>.md`
 - [ ] Photos: quality over quantity (≤20 recommended); each image ≤ 500 KB preferred (max 1 MB); no blurry/duplicate dumps
+- [ ] Social: public links only (LinkedIn, X/Twitter, blogs, videos, galleries); no private or gated URLs
 - [ ] No attendee lists, emails, or other private data
 - [ ] New links are public and durable
 - [ ] I added myself under **Community Contributors** in `contributors.md` (or a maintainer will)

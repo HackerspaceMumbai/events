@@ -51,3 +51,7 @@ Attendees publish under [community/](community/). Add your GitHub handle when yo
 ### Highlights
 
 - _Add GitHub handles linked to `community/highlights/<handle>.md`._
+
+### Social Contributions
+
+- _Add GitHub handles linked to `community/social/<handle>.md`._
