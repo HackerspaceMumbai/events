@@ -33,6 +33,10 @@ See [agenda.md](agenda.md). Session details welcome community updates.
 
 Add your session under [speakers/](speakers/) using your GitHub username as the folder name. See the [speaker workflow](../../../CONTRIBUTING.md#speaker-workflow).
 
+## Official media
+
+Official event photos, videos, and Hackerspace Mumbai social content are archived under [media/](media/). Attendee and community perspectives belong under [community/](community/).
+
 ## Community
 
 Attendees contribute photos, notes, stories, highlights, and social links under [community/](community/). See [Community contributions](../../../docs/community-contributions.md) and the [community workflow](../../../CONTRIBUTING.md#community-workflow).

@@ -30,6 +30,16 @@ events/
         ├── recap.md
         ├── contributors.md
         ├── media/
+        │   ├── photos/
+        │   ├── videos/
+        │   │   ├── README.md
+        │   │   ├── session-recordings.md
+        │   │   └── playlists.md
+        │   ├── social/
+        │   │   ├── linkedin.md
+        │   │   ├── twitter.md
+        │   │   ├── recap-posts.md
+        │   │   └── assets/
         │   ├── cover.jpg
         │   └── banner.jpg
         ├── speakers/

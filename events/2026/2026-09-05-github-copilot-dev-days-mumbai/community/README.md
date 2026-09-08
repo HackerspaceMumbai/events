@@ -1,4 +1,16 @@
-# Community contributions
+# Community Contributions
+
+## Community Contributions
+
+The community folder contains attendee and community perspectives:
+
+- Notes
+- Stories
+- Highlights
+- Social posts
+- Photos
+
+For official event media see [media/](../media/).
 
 Attendees and community members contribute perspective here — photos, notes, stories, highlights, and social contributions.
 
