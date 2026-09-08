@@ -4,6 +4,7 @@ sessionTitle: "Your Server-Rendered App Doesn't Know Who It's Talking To"
 github: anshul2209
 card: card.jpg
 linkedin: https://www.linkedin.com/in/anshul2209
+twitter: https://x.com/anshulbansal09
 ---
 
 # Your Server-Rendered App Doesn't Know Who It's Talking To
