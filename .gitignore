@@ -20,6 +20,8 @@ venv/
 *.log
 .cache/
 
-# Local clones used while developing cross-repo Hackmum sync
+# Local clones / publish helpers used while developing cross-repo Hackmum sync
 .tmp-blog*/
 .tmp-blog-*/
+.tmp-publish-*.py
+.tmp-pr-body.md
