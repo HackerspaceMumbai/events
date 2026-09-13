@@ -4,28 +4,145 @@ on:
   push:
     branches: [main]
     paths:
-      - "events/**"
+      - "events/**/event.yml"
+      - "events/**/agenda.md"
+      - "events/**/recap.md"
+      - "events/**/README.md"
+      - "events/**/contributors.md"
+      - "events/**/speakers/**"
+      - "events/**/resources/**"
+      - "events/**/media/**"
+      - "!events/**/community/**"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  notify:
-    name: Stub Hackmum sync
+  validate:
+    name: event.yml and binary size
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Notify hackmum.in (optional)
-        env:
-          WEBHOOK: ${{ secrets.HACKMUM_SYNC_WEBHOOK }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install --quiet pyyaml
+
+      - name: Validate event metadata
+        run: python .github/scripts/validate_event_metadata.py
+
+  notify:
+    name: Notify Hackmum sync
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Collect official changed event dirs
+        id: sync
         run: |
-          if [ -z "$WEBHOOK" ]; then
-            echo "HACKMUM_SYNC_WEBHOOK is not configured."
-            echo "This workflow is a stub. Event metadata changed on main; no website sync was sent."
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual dispatch: notifying without path gate."
+            echo "should_notify=true" >> "$GITHUB_OUTPUT"
+            echo "changed_event_dirs=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "Posting a sync ping to the configured Hackmum webhook."
+
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            CHANGED="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA")"
+          else
+            CHANGED="$(git diff --name-only "$BEFORE" "$GITHUB_SHA")"
+          fi
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          OFFICIAL="$(echo "$CHANGED" | grep -E '^events/' | grep -v '/community/' || true)"
+          if [ -z "$OFFICIAL" ]; then
+            echo "No official published artifacts changed; skipping Hackmum notify."
+            echo "should_notify=false" >> "$GITHUB_OUTPUT"
+            echo "changed_event_dirs=[]" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          DIRS="$(printf '%s\n' "$OFFICIAL" | python3 -c '
+          import json, re, sys
+          roots = set()
+          pattern = re.compile(r"^(events/\d{4}/[^/]+)")
+          for line in sys.stdin:
+              match = pattern.match(line.strip())
+              if match:
+                  roots.add(match.group(1))
+          print(json.dumps(sorted(roots)))
+          ')"
+
+          echo "Official artifact changes detected."
+          echo "Changed event dirs: $DIRS"
+          echo "should_notify=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "changed_event_dirs<<EOF"
+            echo "$DIRS"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Notify hackmum.in
+        if: steps.sync.outputs.should_notify == 'true'
+        env:
+          WEBHOOK: ${{ secrets.HACKMUM_SYNC_WEBHOOK }}
+          CHANGED_EVENT_DIRS: ${{ steps.sync.outputs.changed_event_dirs }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$WEBHOOK" ]; then
+            echo "HACKMUM_SYNC_WEBHOOK is not configured."
+            echo "Website sync is not activated. Configure a Netlify Build Hook (or equivalent)"
+            echo "as the repository secret HACKMUM_SYNC_WEBHOOK to enable Hackmum rebuilds."
+            echo "See docs/architecture-and-contracts.md#hackmum-website-sync."
+            exit 0
+          fi
+
+          PAYLOAD="$(python3 - <<'PY'
+          import json
+          import os
+
+          dirs_raw = os.environ.get("CHANGED_EVENT_DIRS") or "[]"
+          try:
+              changed = json.loads(dirs_raw)
+          except json.JSONDecodeError:
+              changed = []
+          if not isinstance(changed, list):
+              changed = []
+
+          print(json.dumps({
+              "event": "events-archive-sync",
+              "repository": os.environ["GITHUB_REPOSITORY"],
+              "sha": os.environ["GITHUB_SHA"],
+              "ref": os.environ["GITHUB_REF"],
+              "changed_event_dirs": changed,
+          }))
+          PY
+          )"
+
+          echo "Posting events-archive-sync notify to the configured Hackmum webhook."
           curl --fail --silent --show-error \
             --header "Content-Type: application/json" \
-            --data "{\"repository\":\"${GITHUB_REPOSITORY}\",\"sha\":\"${GITHUB_SHA}\",\"ref\":\"${GITHUB_REF}\"}" \
+            --data "$PAYLOAD" \
             "$WEBHOOK"

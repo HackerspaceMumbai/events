@@ -19,3 +19,7 @@ venv/
 
 *.log
 .cache/
+
+# Local clones used while developing cross-repo Hackmum sync
+.tmp-blog*/
+.tmp-blog-*/

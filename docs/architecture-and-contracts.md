@@ -20,7 +20,7 @@ Supports Pull Requests, reviews, and community ownership.
 
 Public presentation layer. It should consume `event.yml` and the markdown artifacts in each event folder to display past events, speakers, resources, recaps, gallery links, and relative visual asset paths (`assets.cover`, speaker `card`).
 
-This repository does not generate website pages. See [Future Hackmum consumption](#future-hackmum-consumption).
+This repository does not generate website pages. See [Hackmum website sync](#hackmum-website-sync).
 
 ### Bethuya
 
@@ -297,20 +297,93 @@ CI does not yet enforce this contract (unlike the Speaker PR contract). A future
 
 Community photos, notes, stories, highlights, and social contributions under `community/` are first-class event artifacts alongside speakers and resources. See [Community contributions](community-contributions.md).
 
-## Future Hackmum consumption
+## Hackmum website sync
 
-Hackmum may later:
+Hackmum ([hackmum.in](https://hackmum.in), source: [hackerspaceMumbai/blog](https://github.com/hackerspaceMumbai/blog)) is the presentation layer. This repository remains the canonical archive. Website page generation and Astro content live in the blog repo — **not here**.
 
-- Walk `events/**/event.yml`
-- Render event pages from `README.md`, `agenda.md`, `recap.md`, and `speakers/*/speaker.md`
-- Surface resource links and gallery URLs
-- Resolve relative `assets.cover` / `assets.banner` from `event.yml` and `card` from speaker frontmatter for static-site and CDN-friendly image URLs
-- Feature community stories from `community/stories/`
-- Build event galleries from `community/photos/`
-- Surface community highlights from `community/highlights/`
-- Enhance event recaps with attendee notes and perspective from `community/notes/`
-- Surface community social links from `community/social/`
+### Pipeline
 
-**Status: documented only. Do not implement website consumption from this repository.**
+```text
+PR merged to main
+    → Validate event metadata (gate inside notify workflow)
+    → Notify website sync (official artifacts only)
+    → HACKMUM_SYNC_WEBHOOK (typically a Netlify Build Hook)
+    → Hackmum rebuild
+    → Updated past-event page
+```
 
-The notify workflow [`.github/workflows/notify-website-sync.yml`](../.github/workflows/notify-website-sync.yml) is a stub. It no-ops until `HACKMUM_SYNC_WEBHOOK` is configured. No website integration is implemented in this repository.
+Workflow: [`.github/workflows/notify-website-sync.yml`](../.github/workflows/notify-website-sync.yml).
+
+Canonical machine-readable metadata remains per-event `event.yml` ([`schema/event.schema.json`](../schema/event.schema.json)). Hackmum should prefer `event.yml` and speaker frontmatter over scraping prose markdown where practical.
+
+### What triggers a sync notify
+
+Changes under these paths on `main` (after validation succeeds):
+
+| Path | Role |
+| --- | --- |
+| `event.yml` | Event metadata |
+| `agenda.md`, `recap.md`, `README.md`, `contributors.md` | Shared public narrative |
+| `speakers/**` | Speaker profiles and resources (slides, repos, recordings) |
+| `resources/**` | Event-level resource links/files |
+| `media/**` | Official photos, videos, social, cover/banner |
+
+Manual runs via `workflow_dispatch` always attempt notify (useful for smoke tests).
+
+### What does not trigger a sync notify
+
+| Path | Role |
+| --- | --- |
+| `community/notes/**` | Archive-only for now |
+| `community/highlights/**` | Archive-only for now |
+| `community/stories/**` | Archive-only for now |
+| `community/social/**` | Archive-only for now |
+| `community/photos/**` | Archive-only for now |
+
+Community contributions stay in the GitHub archive until a moderated publication path exists. Do not treat community merges as automatic Hackmum rebuilds.
+
+### Notify payload
+
+When activated, the workflow POSTs JSON to `HACKMUM_SYNC_WEBHOOK`:
+
+```json
+{
+  "event": "events-archive-sync",
+  "repository": "HackerspaceMumbai/events",
+  "sha": "<commit sha>",
+  "ref": "refs/heads/main",
+  "changed_event_dirs": ["events/YYYY/YYYY-MM-DD-slug"]
+}
+```
+
+Netlify Build Hooks ignore the body and rebuild the site. Future consumers may use `changed_event_dirs`.
+
+### Activation checklist
+
+See also the maintainer runbook: [hackmum-sync-activation.md](hackmum-sync-activation.md).
+
+1. In the Hackmum Netlify site, create a **Build Hook** (for example named `events-archive-sync`).
+2. In this repository's Settings → Secrets and variables → Actions, set `HACKMUM_SYNC_WEBHOOK` to that Build Hook URL.
+3. Run **Notify website sync** via `workflow_dispatch` and confirm a Netlify deploy starts.
+4. Confirm Hackmum past-event pages with `archiveLinks` refresh speaker resources and official media from this archive after rebuild (blog-side consumption).
+
+Until the secret is set, the notify job exits successfully with a clear “not activated” message so CI stays green.
+
+### Hackmum consumption (blog repo)
+
+Hackmum may:
+
+- Walk linked `events/**/event.yml` via `archiveLinks`
+- Render speaker resources from `speakers/*/speaker.md` frontmatter at build time
+- Resolve relative `assets.cover` / `assets.banner` and speaker `card`
+- Build galleries from official `media/photos` (and optional external `gallery` URI)
+
+Moderated publication of `community/**` onto Hackmum is explicitly out of scope for the current sync path.
+
+Architectural invariants remain:
+
+```text
+GitHub  = Community Archive
+Hackmum = Community Website
+Bethuya = Community Operations Platform
+```

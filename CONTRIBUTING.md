@@ -30,6 +30,7 @@ Create the event, add the agenda, add speakers, then publish.
    - After the event, complete `recap.md` and `contributors.md` (include **Community Contributors** as submissions land).
    - Prefer links over binaries in `resources/`.
    - Archive final event branding under `media/` (`cover.jpg` strongly recommended; `banner.jpg` optional). Reference them from `event.yml` `assets`. Keep visual assets ≤ 500 KB when possible (maximum 1 MB). See [Visual Assets Archival Standard](docs/architecture-and-contracts.md#visual-assets-archival-standard).
+   - When official artifacts (`event.yml`, agenda/recap, `speakers/**`, `resources/**`, `media/**`) merge to `main`, [website sync](docs/architecture-and-contracts.md#hackmum-website-sync) notifies Hackmum to rebuild (once `HACKMUM_SYNC_WEBHOOK` is configured). Community-only merges do not.
    - Invite attendees using [Event messaging](docs/event-messaging.md).
 
 ## Speaker workflow
@@ -48,7 +49,7 @@ Find the event, create your folder, add resources, submit a PR.
 4. **Submit a PR** that modifies **only** `speakers/<your-github-handle>/**`.
    - Do not edit `README.md`, `agenda.md`, `recap.md`, `event.yml`, `contributors.md`, `media/`, or another speaker's folder.
 
-CI enforces this contract so maintainers can merge many speaker submissions without conflicts.
+CI enforces this contract so maintainers can merge many speaker submissions without conflicts. After merge to `main`, speaker resource updates are included in [Hackmum website sync](docs/architecture-and-contracts.md#hackmum-website-sync) so slides, repositories, and recordings can appear on hackmum.in without a separate website PR.
 
 ## Community workflow
 
@@ -67,6 +68,8 @@ Already shared publicly? Links to LinkedIn posts, X/Twitter threads, blogs, vide
    - Social: `community/social/<your-github-handle>.md` — start from [templates/community-social-template.md](templates/community-social-template.md)
 3. **Recognition** — add yourself under **Community Contributors** in `contributors.md`, or ask a maintainer to.
 4. **Submit a PR** labeled `community`. Prefer a PR; use the community issue forms if you need help.
+
+Community contributions remain archive-only for now: they do **not** automatically rebuild Hackmum. Moderated publication may come later. See [Hackmum website sync](docs/architecture-and-contracts.md#hackmum-website-sync).
 
 Also welcome: fix typos, improve recaps, and add durable public resource links.
 
