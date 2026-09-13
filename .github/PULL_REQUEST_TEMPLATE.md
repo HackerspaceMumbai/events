@@ -19,6 +19,7 @@
 - [ ] I did not edit `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder
 - [ ] Slides, repo, and recording are links when possible
 - [ ] Any local files are 25 MB or smaller
+- [ ] I have requested at least one reviewer
 
 ## Organizer checklist
 
@@ -41,3 +42,4 @@
 - [ ] No attendee lists, emails, or other private data
 - [ ] New links are public and durable
 - [ ] I added myself under **Community Contributors** in `contributors.md` (or a maintainer will)
+- [ ] I have requested at least one reviewer
