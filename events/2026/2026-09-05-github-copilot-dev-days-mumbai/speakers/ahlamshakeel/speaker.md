@@ -30,4 +30,4 @@ Why institutions need a repeatable way to decide, govern, and answer for AI in e
 
 ## Resources
 
-Download the slides from here: [Download](./assets/Dev_Days_Mumbai_2026.pdf)
+Download the slides from here: [Download](https://github.com/ahlamshakeel/events/blob/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/ahlamshakeel/assets/Dev_Days_Mumbai_2026.pdf) 
