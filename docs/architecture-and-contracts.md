@@ -123,9 +123,10 @@ recording: https://youtube.com/...
 
 Allow local files only when a public host is not available. Put them under
 `speakers/<github-handle>/assets/` (for example `assets/slides.pdf`), not beside
-`speaker.md`. Only `speaker.md` and optional `card.jpg` / `card.webp` belong at
-the speaker folder root. CI fails when session binaries (PDF, PPTX, ZIP, video,
-and similar) are placed at the speaker root.
+`speaker.md`. At the speaker folder root, CI allows only `speaker.md`, optional
+`card.jpg` / `card.webp`, optional `readme.md`, and `.gitkeep`. CI fails when
+session binaries (PDF, PPTX, ZIP, video, and similar) or any other file are
+placed at the speaker root.
 
 Maximum recommended size: **25 MB**. CI emits a warning when an added or changed file exceeds that size. It does not fail the build for size alone.
 
@@ -189,13 +190,15 @@ media/
 ```text
 speakers/<github-handle>/
 ├── speaker.md
-└── card.jpg      # optional, strongly encouraged
+├── card.jpg      # optional, strongly encouraged
+├── readme.md     # optional
+└── .gitkeep      # optional placeholder
 ```
 
 - `card.jpg` is the final published speaker promotional card.
 - Supported formats: `.jpg` or `.webp` (prefer `card.jpg` or `card.webp`).
 - Referenced from speaker frontmatter; stored only in that speaker's folder.
-- Session slides and other binaries still belong in `assets/` when a public URL is unavailable (see Resource policy).
+- Optional `readme.md` / `.gitkeep` may sit at the speaker root; session slides and other binaries still belong in `assets/` when a public URL is unavailable (see Resource policy).
 
 ### Speaker PR compatibility
 

@@ -72,6 +72,11 @@ ALLOWED_SPEAKER_ROOT_FILES = {
     ".gitkeep",
 }
 
+SPEAKER_ROOT_ALLOWLIST_HINT = (
+    "only `speaker.md`, optional `card.jpg`/`card.webp`, `readme.md`, and `.gitkeep` "
+    "belong at the speaker root"
+)
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -261,7 +266,7 @@ def warn_large_files(root: Path, files: list[Path] | None) -> int:
 
 
 def validate_speaker_session_layout(events_root: Path) -> list[str]:
-    """Reject session binaries stored beside speaker.md instead of under assets/."""
+    """Enforce speaker-root layout: only docs/cards at root; session binaries under assets/."""
     errors: list[str] = []
     for speakers_dir in events_root.rglob("speakers"):
         if not speakers_dir.is_dir():
@@ -275,14 +280,18 @@ def validate_speaker_session_layout(events_root: Path) -> list[str]:
                 name = path.name
                 if name.lower() in ALLOWED_SPEAKER_ROOT_FILES:
                     continue
-                if path.suffix.lower() not in SESSION_BINARY_SUFFIXES:
-                    continue
                 rel = path.as_posix()
-                errors.append(
-                    f"{rel}: session binaries must live under `speakers/<handle>/assets/`, "
-                    f"not beside `speaker.md`. Move to `assets/{name}` "
-                    "(only `speaker.md` and optional `card.jpg`/`card.webp` belong at the speaker root)."
-                )
+                if path.suffix.lower() in SESSION_BINARY_SUFFIXES:
+                    errors.append(
+                        f"{rel}: session binaries must live under `speakers/<handle>/assets/`, "
+                        f"not beside `speaker.md`. Move to `assets/{name}` "
+                        f"({SPEAKER_ROOT_ALLOWLIST_HINT})."
+                    )
+                else:
+                    errors.append(
+                        f"{rel}: {SPEAKER_ROOT_ALLOWLIST_HINT}. "
+                        f"Move session files under `assets/` or remove `{name}`."
+                    )
     return errors
 
 
