@@ -18,7 +18,7 @@
 - [ ] This PR only modifies `speakers/<my-handle>/**`
 - [ ] I did not edit `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder
 - [ ] Resources for hackmum.in are in **YAML frontmatter** (not only the Markdown body): set `slides:`, `repository:`, and/or `recording:` to `https://...` URLs
-- [ ] If a PDF/PPTX must live in git, I still set `slides:` to a durable public URL (Speaker Deck, or the file's `raw.githubusercontent.com` URL)
+- [ ] If a PDF/PPTX must live in git, it is under `speakers/<my-handle>/assets/` (not beside `speaker.md`) and `slides:` still has a durable `https://` URL
 - [ ] Body links alone are not enough — Hackmum reads frontmatter only
 - [ ] Any local files are 25 MB or smaller
 - [ ] I have requested at least one reviewer
