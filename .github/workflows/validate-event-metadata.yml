@@ -6,6 +6,7 @@ on:
       - "events/**"
       - "schema/**"
       - ".github/scripts/validate_event_metadata.py"
+      - ".github/scripts/test_validate_event_metadata.py"
       - ".github/workflows/validate-event-metadata.yml"
   push:
     branches: [main]
@@ -13,6 +14,7 @@ on:
       - "events/**"
       - "schema/**"
       - ".github/scripts/validate_event_metadata.py"
+      - ".github/scripts/test_validate_event_metadata.py"
 
 jobs:
   validate:
@@ -31,6 +33,10 @@ jobs:
 
       - name: Install PyYAML
         run: pip install --quiet pyyaml
+
+      - name: Speaker-root layout unit tests
+        working-directory: .github/scripts
+        run: python -m unittest test_validate_event_metadata.py -v
 
       - name: List changed files
         id: changed

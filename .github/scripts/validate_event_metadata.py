@@ -72,6 +72,11 @@ ALLOWED_SPEAKER_ROOT_FILES = {
     ".gitkeep",
 }
 
+SPEAKER_ROOT_ALLOWLIST_HINT = (
+    "only `speaker.md`, optional `card.jpg`/`card.webp`, `readme.md`, and `.gitkeep` "
+    "belong at the speaker root"
+)
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -280,12 +285,11 @@ def validate_speaker_session_layout(events_root: Path) -> list[str]:
                     errors.append(
                         f"{rel}: session binaries must live under `speakers/<handle>/assets/`, "
                         f"not beside `speaker.md`. Move to `assets/{name}` "
-                        "(only `speaker.md` and optional `card.jpg`/`card.webp` belong at the speaker root)."
+                        f"({SPEAKER_ROOT_ALLOWLIST_HINT})."
                     )
                 else:
                     errors.append(
-                        f"{rel}: only `speaker.md`, optional `card.jpg`/`card.webp`, "
-                        "`readme.md`, and `.gitkeep` belong at the speaker root. "
+                        f"{rel}: {SPEAKER_ROOT_ALLOWLIST_HINT}. "
                         f"Move session files under `assets/` or remove `{name}`."
                     )
     return errors
