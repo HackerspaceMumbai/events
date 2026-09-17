@@ -5,6 +5,8 @@ on:
     types: [opened, synchronize, reopened, labeled, unlabeled]
     paths:
       - "events/**"
+      - ".github/scripts/verify_speaker_pr.py"
+      - ".github/workflows/verify-speaker-pr.yml"
 
 jobs:
   speaker-contract:
