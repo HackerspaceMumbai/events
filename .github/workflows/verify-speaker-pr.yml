@@ -2,8 +2,11 @@ name: Verify speaker PR
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
     paths:
       - "events/**"
+      - ".github/scripts/verify_speaker_pr.py"
+      - ".github/workflows/verify-speaker-pr.yml"
 
 jobs:
   speaker-contract:
@@ -24,21 +27,26 @@ jobs:
         id: meta
         env:
           ACTOR: ${{ github.event.pull_request.user.login }}
+          ASSOCIATION: ${{ github.event.pull_request.author_association }}
         run: |
           git diff --name-only --diff-filter=ACMRD "${{ github.event.pull_request.base.sha }}"...HEAD > /tmp/changed-files.txt
           labels=$(jq -r '[.pull_request.labels[].name] | join(",")' "$GITHUB_EVENT_PATH")
           echo "labels=$labels" >> "$GITHUB_OUTPUT"
           echo "actor=$ACTOR" >> "$GITHUB_OUTPUT"
+          echo "association=$ASSOCIATION" >> "$GITHUB_OUTPUT"
           echo "Changed files:"
           cat /tmp/changed-files.txt
           echo "Labels: $labels"
+          echo "Author association: $ASSOCIATION"
 
       - name: Enforce speaker path contract
         env:
           ACTOR: ${{ steps.meta.outputs.actor }}
           LABELS: ${{ steps.meta.outputs.labels }}
+          ASSOCIATION: ${{ steps.meta.outputs.association }}
         run: |
           python .github/scripts/verify_speaker_pr.py \
             --actor "$ACTOR" \
             --labels "$LABELS" \
+            --association "$ASSOCIATION" \
             --files-from /tmp/changed-files.txt

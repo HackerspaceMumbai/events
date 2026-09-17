@@ -48,6 +48,30 @@ DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 TIME = re.compile(r"^\d{2}:\d{2}$")
 MAX_BYTES = 25 * 1024 * 1024
 
+# Session binaries must live under speakers/<handle>/assets/, not beside speaker.md.
+SESSION_BINARY_SUFFIXES = {
+    ".pdf",
+    ".ppt",
+    ".pptx",
+    ".key",
+    ".odp",
+    ".zip",
+    ".rar",
+    ".7z",
+    ".mp4",
+    ".mov",
+    ".webm",
+    ".mkv",
+}
+
+ALLOWED_SPEAKER_ROOT_FILES = {
+    "speaker.md",
+    "card.jpg",
+    "card.webp",
+    "readme.md",
+    ".gitkeep",
+}
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -236,6 +260,32 @@ def warn_large_files(root: Path, files: list[Path] | None) -> int:
     return warnings
 
 
+def validate_speaker_session_layout(events_root: Path) -> list[str]:
+    """Reject session binaries stored beside speaker.md instead of under assets/."""
+    errors: list[str] = []
+    for speakers_dir in events_root.rglob("speakers"):
+        if not speakers_dir.is_dir():
+            continue
+        for handle_dir in sorted(speakers_dir.iterdir()):
+            if not handle_dir.is_dir() or handle_dir.name.startswith("."):
+                continue
+            for path in sorted(handle_dir.iterdir()):
+                if not path.is_file():
+                    continue
+                name = path.name
+                if name.lower() in ALLOWED_SPEAKER_ROOT_FILES:
+                    continue
+                if path.suffix.lower() not in SESSION_BINARY_SUFFIXES:
+                    continue
+                rel = path.as_posix()
+                errors.append(
+                    f"{rel}: session binaries must live under `speakers/<handle>/assets/`, "
+                    f"not beside `speaker.md`. Move to `assets/{name}` "
+                    "(only `speaker.md` and optional `card.jpg`/`card.webp` belong at the speaker root)."
+                )
+    return errors
+
+
 def collect_event_files(events_root: Path) -> list[Path]:
     return sorted(events_root.rglob("event.yml"))
 
@@ -276,6 +326,8 @@ def main() -> int:
         print("No event.yml files found.")
     for path in event_files:
         errors.extend(validate_event(path, events_root))
+
+    errors.extend(validate_speaker_session_layout(events_root))
 
     changed_raw = args.changed_files
     if args.changed_files_from is not None:

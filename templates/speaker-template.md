@@ -4,6 +4,7 @@ sessionTitle: One Interface, Infinite Agents
 github: anxkhn
 # card: card.jpg
 linkedin: https://www.linkedin.com/in/example
+# Required for hackmum.in — https URLs in these fields (body links alone are not enough):
 slides: https://speakerdeck.com/example
 repository: https://github.com/example/session
 recording: https://youtube.com/watch?v=example
@@ -36,10 +37,12 @@ Optional but strongly encouraged: add the **final published** promotional card a
 
 ## Resources
 
-Prefer public links over binaries:
+**Required for hackmum.in:** put durable `https://` URLs in the YAML frontmatter fields `slides`, `repository`, and/or `recording`. Hackmum reads those fields only — Markdown body links are not published automatically.
 
-- Slides: add a Speaker Deck, Google Slides, or similar URL in `slides`
-- Code: add the session repository URL in `repository`
-- Recording: add the YouTube or other public URL in `recording`
+Prefer public hosts over binaries:
 
-If a session file must live in git, put it in `assets/` (not the speaker card) and keep it at or below 25 MB.
+- Slides: Speaker Deck, Google Slides, or similar in `slides:`
+- Code: session repository URL in `repository:`
+- Recording: YouTube or other public URL in `recording:`
+
+If a session file must live in git, put it under `assets/` (for example `assets/slides.pdf`), keep it at or below 25 MB, **and** still set `slides:` to a durable URL (Speaker Deck, or the file's `https://raw.githubusercontent.com/HackerspaceMumbai/events/main/...` URL after merge). Do not leave session binaries loose beside `speaker.md` except for the optional speaker `card`.

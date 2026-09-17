@@ -41,12 +41,14 @@ Find the event, create your folder, add resources, submit a PR.
    - The folder name must match your GitHub username.
    - Copy [templates/speaker-template.md](templates/speaker-template.md) to `speaker.md`.
 3. **Add resources**
-   - Link slides, source, and recordings in frontmatter when possible.
+   - Set `slides:`, `repository:`, and/or `recording:` in `speaker.md` **YAML frontmatter** to `https://...` URLs. Hackmum publishes from frontmatter only; body-only Markdown links (for example `[Download](./deck.pdf)`) do not appear on hackmum.in.
+   - Prefer Speaker Deck / YouTube / GitHub repo URLs. If a PDF must live in git, also set `slides:` to its durable `raw.githubusercontent.com` URL after the file is on `main`.
    - Optional: add the final published speaker card as `card.jpg` (or `card.webp`) and set `card:` in frontmatter. Target ≤ 500 KB (maximum 1 MB).
    - Other local session files belong in `assets/` only when a durable public URL does not exist (≤ 25 MB; CI warns above that size).
    - Do not edit organizer `media/` or shared marketing folders.
 4. **Submit a PR** that modifies **only** `speakers/<your-github-handle>/**`.
    - Do not edit `README.md`, `agenda.md`, `recap.md`, `event.yml`, `contributors.md`, `media/`, or another speaker's folder.
+   - Use the speaker checklist in the PR template — confirm frontmatter resource URLs are set before requesting review.
 
 CI enforces this contract so maintainers can merge many speaker submissions without conflicts.
 

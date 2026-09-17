@@ -8,6 +8,10 @@ body:
       value: |
         Prefer opening a Pull Request that only changes `speakers/<your-github-handle>/**`.
         Use this issue if you need help or only have links to share.
+
+        **Hackmum publishes from YAML frontmatter only.** Put slides, repository, and recording
+        under `slides:`, `repository:`, and `recording:` in `speaker.md`. Body-only Markdown
+        links (for example `[Download](./deck.pdf)`) will not appear on hackmum.in.
   - type: input
     id: event_slug
     attributes:
@@ -55,4 +59,6 @@ body:
       label: Acknowledgements
       options:
         - label: I understand speaker PRs may only modify speakers/<my-github-handle>/**.
+          required: true
+        - label: I will put resource URLs in speaker.md frontmatter (slides / repository / recording), not only in the Markdown body.
           required: true

@@ -106,7 +106,10 @@ Workflow: [`.github/workflows/verify-speaker-pr.yml`](../.github/workflows/verif
 
 - If a PR changes any `**/speakers/**` path, **every** changed file must be under `**/speakers/<github.actor>/**`.
 - Violations fail the check.
-- Skip when the PR has the `organizer` label, or when the author is listed in [`.github/CODEOWNERS`](../.github/CODEOWNERS).
+- **Maintainer override** (any of these skips the path contract):
+  - PR has the `organizer` label
+  - Author association is `OWNER`, `MEMBER`, or `COLLABORATOR` (org members and write collaborators)
+  - Author username is listed as an `@handle` in [`.github/CODEOWNERS`](../.github/CODEOWNERS) (org-only entries like `@HackerspaceMumbai` do not match individual logins)
 
 ## Resource policy
 
@@ -118,9 +121,13 @@ repository: https://github.com/...
 recording: https://youtube.com/...
 ```
 
-Allow local files (`slides.pdf`, `slides.pptx`, and similar) only when a public host is not available.
+Allow local files only when a public host is not available. Put them under
+`speakers/<github-handle>/assets/` (for example `assets/slides.pdf`), not beside
+`speaker.md`. Only `speaker.md` and optional `card.jpg` / `card.webp` belong at
+the speaker folder root. CI fails when session binaries (PDF, PPTX, ZIP, video,
+and similar) are placed at the speaker root.
 
-Maximum recommended size: **25 MB**. CI emits a warning when an added or changed file exceeds that size. It does not fail the build.
+Maximum recommended size: **25 MB**. CI emits a warning when an added or changed file exceeds that size. It does not fail the build for size alone.
 
 Keep secrets, attendee lists, and private contact data out of git.
 
