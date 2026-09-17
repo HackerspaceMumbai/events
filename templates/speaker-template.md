@@ -45,4 +45,4 @@ Prefer public hosts over binaries:
 - Code: session repository URL in `repository:`
 - Recording: YouTube or other public URL in `recording:`
 
-If a session file must live in git (for example `assets/slides.pdf` or a PDF beside this file), keep it at or below 25 MB **and** still set `slides:` to a durable URL (Speaker Deck, or the file's `https://raw.githubusercontent.com/HackerspaceMumbai/events/main/...` URL after merge).
+If a session file must live in git, put it under `assets/` (for example `assets/slides.pdf`), keep it at or below 25 MB, **and** still set `slides:` to a durable URL (Speaker Deck, or the file's `https://raw.githubusercontent.com/HackerspaceMumbai/events/main/...` URL after merge). Do not leave session binaries loose beside `speaker.md` except for the optional speaker `card`.
