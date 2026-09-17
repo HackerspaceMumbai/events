@@ -7,7 +7,7 @@ About the Session
 Why institutions need a repeatable way to decide, govern, and answer for AI in education. This session looks at why schools, colleges, and universities keep adopting AI tools like Copilot, auto-graders, and proctoring software without a real governance process — and what happens when the tool gets something wrong. It introduces a three-pillar evaluation framework (Transparency, Bias Risk, Data Accountability) built specifically for K-12 and higher ed, walks through a stakeholder plan for faculty, administrators, and students, and applies the framework to tools CS students already use in the lab: GitHub Copilot, Amazon Q Developer, and Cursor/JetBrains AI.
 
 Materials in this Folder
-Copilot_in_the_Classroom_-_Dev_Day_Mumbai_05_September_2026.pdf — Session slides
+Copilot in the Classroom - Dev Day Mumbai 05 September 2026.pdf — Session slides
 
 Key Takeaways
 Most institutions adopt AI education tools on vendor promises (personalized learning, time savings, closed achievement gaps) without a process for deciding whether they should, or a plan for when the tool errs.
