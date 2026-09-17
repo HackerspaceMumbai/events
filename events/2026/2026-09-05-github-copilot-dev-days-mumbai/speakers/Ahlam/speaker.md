@@ -1,25 +1,33 @@
-Copilot in the Classroom: Adopt Fast, Govern Faster
+---
+name: Ahlam Shakeel Ahmed Ansari
+sessionTitle: "Copilot in the Classroom: Adopt Fast, Govern Faster"
+github: ahlamshakeel
+card: card.jpg
+linkedin: https://www.linkedin.com/in/ahlamshakeel
+twitter: https://x.com/ahlamshakeel
+slides: https://raw.githubusercontent.com/HackerspaceMumbai/events/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/ahlamshakeel/assets/Dev_Days_Mumbai_2026.pdf
+---
 
-Speaker: Ahlam Ansari Event: GitHub Copilot Dev Days Mumbai — September 5, 2026 Session Track/Type: Lightning Talk
+# Copilot in the Classroom: Adopt Fast, Govern Faster
 
-About the Session
+## Abstract
 
 Why institutions need a repeatable way to decide, govern, and answer for AI in education. This session looks at why schools, colleges, and universities keep adopting AI tools like Copilot, auto-graders, and proctoring software without a real governance process — and what happens when the tool gets something wrong. It introduces a three-pillar evaluation framework (Transparency, Bias Risk, Data Accountability) built specifically for K-12 and higher ed, walks through a stakeholder plan for faculty, administrators, and students, and applies the framework to tools CS students already use in the lab: GitHub Copilot, Amazon Q Developer, and Cursor/JetBrains AI.
 
-Materials in this Folder
-Copilot in the Classroom - Dev Day Mumbai 05 September 2026.pdf — Session slides
+## Key Takeaways
 
-Key Takeaways
-Most institutions adopt AI education tools on vendor promises (personalized learning, time savings, closed achievement gaps) without a process for deciding whether they should, or a plan for when the tool errs.
-Three questions every institution should be able to answer before rollout: Who audits the outputs? What happens to student data? What do we say when we can't explain a decision?
-The evaluation framework's three pillars: Transparency (can the vendor explain a decision in plain language?), Bias Risk (has it been tested against your actual student population?), and Data Accountability (who owns the data, and what happens when the contract ends?).
-Bring faculty, administrators, and students into the conversation before rollout — not after a complaint. Practical tools include an "override log" for faculty and a plain-language data notice for students.
-Applying the framework to GitHub Copilot, Amazon Q Developer, and Cursor/JetBrains AI shows even the strongest tools only offer paid-tier promises, not guarantees — governance is a habit, not a one-time checklist.
-About Me
+    1. Schools jump on AI tools because of big promises (personalization, time saved, better grades) — but rarely have a plan for what to do when the tool gets something wrong.
+    2. Before using any AI tool, answer three questions:
+        Who checks its decisions?
+        What happens to student data?
+        What do we say if we can't explain why it did something?
+    3. Judge any tool on three things:
+        Can it explain its decisions clearly?
+        Was it tested on students like yours (not a generic sample)?
+        Who owns the data, and what happens to it after the contract ends?
+    4. Involve teachers, admins, and students before rollout — not after something goes wrong.
+    5. Even top tools (like GitHub Copilot) only offer promises, not guarantees — so governance has to be an ongoing habit, not a one-time checkbox.
 
-Ahlam Ansari — Research Scholar at KJ Somaiya School of Engineering, Assistant Professor at MH Saboo Siddik College of Engineering, and Doctoral Researcher in Trustworthy AI.
+## Resources
 
-LinkedIn: https://www.linkedin.com/in/ahlamshakeel/
-X/Twitter: @ahlamshakeel
-
-Questions and discussion welcome — reach out via LinkedIn or X (@ahlamshakeel).
+Download the slides from here: [Download](./assets/dev_days_mumbai_2026.pdf)
