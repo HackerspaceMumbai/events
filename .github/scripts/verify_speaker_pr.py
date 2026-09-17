@@ -61,9 +61,22 @@ def parse_labels(raw: str) -> set[str]:
     return {item.strip().lower() for item in raw.split(",") if item.strip()}
 
 
-def validate(actor: str, files: list[str], labels: set[str], maintainers: set[str]) -> list[str]:
+def validate(
+    actor: str,
+    files: list[str],
+    labels: set[str],
+    maintainers: set[str],
+    association: str = "",
+) -> list[str]:
     actor_l = actor.lower()
-    if "organizer" in labels or actor_l in maintainers:
+    association_l = association.strip().upper()
+    # Maintainers/org members may edit multiple speaker folders and shared files.
+    # Speakers (typically CONTRIBUTOR / FIRST_TIME_*) remain path-restricted.
+    if (
+        "organizer" in labels
+        or actor_l in maintainers
+        or association_l in {"OWNER", "MEMBER", "COLLABORATOR"}
+    ):
         return []
 
     changed = [posix(path) for path in files if posix(path)]
@@ -90,7 +103,8 @@ def validate(actor: str, files: list[str], labels: set[str], maintainers: set[st
     if errors:
         errors.append(
             "Speakers must not modify README.md, agenda.md, recap.md, contributors.md, "
-            "event.yml, or peer speaker folders. Organizers should label the PR `organizer`."
+            "event.yml, or peer speaker folders. Organizers should label the PR `organizer`, "
+            "or open the PR as a repository maintainer / org member."
         )
     return errors
 
@@ -101,6 +115,11 @@ def main() -> int:
     parser.add_argument("--files", help="Newline-separated changed paths")
     parser.add_argument("--files-from", type=Path, help="File containing newline-separated changed paths")
     parser.add_argument("--labels", default="")
+    parser.add_argument(
+        "--association",
+        default="",
+        help="GitHub pull_request.author_association (OWNER/MEMBER/COLLABORATOR bypass)",
+    )
     parser.add_argument("--codeowners", type=Path, default=repo_root() / ".github" / "CODEOWNERS")
     args = parser.parse_args()
 
@@ -111,7 +130,7 @@ def main() -> int:
     labels = parse_labels(args.labels)
     maintainers = codeowners_handles(args.codeowners)
 
-    errors = validate(args.actor, files, labels, maintainers)
+    errors = validate(args.actor, files, labels, maintainers, args.association)
     if errors:
         print("Speaker PR contract failed:\n", file=sys.stderr)
         for error in errors:

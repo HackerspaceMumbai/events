@@ -29,7 +29,7 @@
 - [ ] Folder name matches `YYYY-MM-DD-slug` or series `YYYY-MM-slug`
 - [ ] `agenda.md`, `recap.md`, and `contributors.md` are present
 - [ ] `community/` tree is present for new events
-- [ ] PR is labeled `organizer` if it also touches speaker folders
+- [ ] PR is labeled `organizer` if it also touches speaker folders (or the author is an org member / collaborator — those bypass the speaker path check automatically)
 
 ## Community checklist
 

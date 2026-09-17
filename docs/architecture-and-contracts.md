@@ -106,7 +106,10 @@ Workflow: [`.github/workflows/verify-speaker-pr.yml`](../.github/workflows/verif
 
 - If a PR changes any `**/speakers/**` path, **every** changed file must be under `**/speakers/<github.actor>/**`.
 - Violations fail the check.
-- Skip when the PR has the `organizer` label, or when the author is listed in [`.github/CODEOWNERS`](../.github/CODEOWNERS).
+- **Maintainer override** (any of these skips the path contract):
+  - PR has the `organizer` label
+  - Author association is `OWNER`, `MEMBER`, or `COLLABORATOR` (org members and write collaborators)
+  - Author username is listed as an `@handle` in [`.github/CODEOWNERS`](../.github/CODEOWNERS) (org-only entries like `@HackerspaceMumbai` do not match individual logins)
 
 ## Resource policy
 
