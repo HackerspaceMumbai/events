@@ -3,6 +3,7 @@ name: Pratik Pathak
 sessionTitle: "You Shouldn't Prompt GitHub Copilot Agent, You Should Make a System to Prompt Itself"
 github: zpratikpathak
 card: card.jpg
+slides: https://raw.githubusercontent.com/HackerspaceMumbai/events/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/zpratikpathak/Self_Prompt_PPT.pdf
 ---
 
 # You Shouldn't Prompt GitHub Copilot Agent, You Should Make a System to Prompt Itself

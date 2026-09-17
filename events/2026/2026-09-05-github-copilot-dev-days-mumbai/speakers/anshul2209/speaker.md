@@ -5,6 +5,7 @@ github: anshul2209
 card: card.jpg
 linkedin: https://www.linkedin.com/in/anshul2209
 twitter: https://x.com/anshulbansal09
+slides: https://raw.githubusercontent.com/HackerspaceMumbai/events/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/anshul2209/dev-days-mumbai-deck.pdf
 ---
 
 # Your Server-Rendered App Doesn't Know Who It's Talking To
