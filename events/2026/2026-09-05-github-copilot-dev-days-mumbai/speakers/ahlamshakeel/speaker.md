@@ -5,7 +5,7 @@ github: ahlamshakeel
 card: card.jpg
 linkedin: https://www.linkedin.com/in/ahlamshakeel
 twitter: https://x.com/ahlamshakeel
-slides: https://github.com/ahlamshakeel/events/blob/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/ahlamshakeel/assets/Dev_Days_Mumbai_2026.pdf
+slides: https://raw.githubusercontent.com/HackerspaceMumbai/events/main/events/2026/2026-09-05-github-copilot-dev-days-mumbai/speakers/ahlamshakeel/assets/Dev_Days_Mumbai_2026.pdf
 ---
 
 # Copilot in the Classroom: Adopt Fast, Govern Faster
