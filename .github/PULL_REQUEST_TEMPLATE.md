@@ -1,58 +1,47 @@
-## Change type
+## What kind of change is this?
 
-Select all that apply, then complete the relevant checklist below.
-
-- [ ] **Organizer** — event metadata, agenda, recap, or structure
-- [ ] **Speaker** — files in my `speakers/<my-github-handle>/` folder
-- [ ] **Community** — photos, notes, stories, highlights, social links, resources, contributors, or docs
+- [ ] Organizer: new or updated event metadata, agenda, or structure
+- [ ] Speaker: my `speakers/<github-handle>/` folder only
+- [ ] Community: photos, notes, stories, highlights, social links, recap, links, contributors, or docs
 
 ## Summary
 
-<!-- What does this PR add, update, or fix? -->
+<!-- What knowledge does this PR add or fix? -->
 
 ## Event
 
-<!-- Event path under events/YYYY/, or “Not event-specific.” -->
+<!-- Path under events/YYYY/, if this change is event-specific -->
 
 ## Speaker checklist
 
-Complete this section for speaker contributions.
-
-- [ ] My folder name matches my GitHub username.
-- [ ] This PR only changes `speakers/<my-github-handle>/**`.
-- [ ] I have not edited `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder.
-- [ ] Hackmum resources are in `speaker.md` YAML frontmatter: `slides:`, `repository:`, and/or `recording:` use durable `https://` URLs.
-- [ ] Any PDF or PPTX is in `speakers/<my-github-handle>/assets/`, not beside `speaker.md`; `slides:` still points to a durable URL.
-- [ ] Any local file is 25 MB or smaller.
-
-> Hackmum reads resource URLs from YAML frontmatter; links in the Markdown body alone are not published.
+- [ ] Folder name matches my GitHub username
+- [ ] This PR only modifies `speakers/<my-handle>/**`
+- [ ] I did not edit `event.yml`, `README.md`, `agenda.md`, `recap.md`, `contributors.md`, or another speaker's folder
+- [ ] Resources for hackmum.in are in **YAML frontmatter** (not only the Markdown body): set `slides:`, `repository:`, and/or `recording:` to `https://...` URLs
+- [ ] If a PDF/PPTX must live in git, it is under `speakers/<my-handle>/assets/` (not beside `speaker.md`) and `slides:` still has a durable `https://` URL
+- [ ] Body links alone are not enough — Hackmum reads frontmatter only
+- [ ] Any local files are 25 MB or smaller
+- [ ] I have requested at least one reviewer
 
 ## Organizer checklist
 
-Complete this section for event setup or organizer updates.
-
-- [ ] `event.yml` uses a documented `eventType`.
-- [ ] The event folder follows `YYYY-MM-DD-slug` or the series folder follows `YYYY-MM-slug`.
-- [ ] The event includes `agenda.md`, `recap.md`, and `contributors.md`.
-- [ ] A new event includes the `community/` contribution folders.
-- [ ] If this PR includes speaker files alongside organizer changes, it is labeled `organizer` (unless my org membership or collaborator status bypasses the speaker path check).
+- [ ] `event.yml` uses a documented `eventType`
+- [ ] Folder name matches `YYYY-MM-DD-slug` or series `YYYY-MM-slug`
+- [ ] `agenda.md`, `recap.md`, and `contributors.md` are present
+- [ ] `community/` tree is present for new events
+- [ ] PR is labeled `organizer` if it also touches speaker folders (or the author is an org member / collaborator — those bypass the speaker path check automatically)
 
 ## Community checklist
 
-Complete this section for community contributions.
-
-- [ ] My changes are under my own handle in the event's `community/` folder:
-  - Photos: `community/photos/<my-github-handle>/**`
-  - Notes: `community/notes/<my-github-handle>.md`
-  - Stories: `community/stories/<my-github-handle>.md`
-  - Highlights: `community/highlights/<my-github-handle>.md`
-  - Social links: `community/social/<my-github-handle>.md`
-- [ ] Photos are public-shareable and curated (20 or fewer recommended; 500 KB preferred per image, 1 MB maximum).
-- [ ] Social links are public and not gated.
-- [ ] I have not included attendee lists, email addresses, or other private data.
-- [ ] New links are public and durable.
-- [ ] I added myself to **Community Contributors** in `contributors.md`, or a maintainer will add me.
-
-## Review
-
-- [ ] I have requested at least one reviewer.
+- [ ] Paths are under my own handle only:
+  - `community/photos/<my-handle>/**`
+  - `community/notes/<my-handle>.md`
+  - `community/stories/<my-handle>.md`
+  - `community/highlights/<my-handle>.md`
+  - `community/social/<my-handle>.md`
+- [ ] Photos: quality over quantity (≤20 recommended); each image ≤ 500 KB preferred (max 1 MB); no blurry/duplicate dumps
+- [ ] Social: public links only (LinkedIn, X/Twitter, blogs, videos, galleries); no private or gated URLs
+- [ ] No attendee lists, emails, or other private data
+- [ ] New links are public and durable
+- [ ] I added myself under **Community Contributors** in `contributors.md` (or a maintainer will)
+- [ ] I have requested at least one reviewer
