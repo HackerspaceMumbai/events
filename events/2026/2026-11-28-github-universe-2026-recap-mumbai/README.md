@@ -9,4 +9,7 @@ Docker Meetup.
 - **Organizer:** Hackerspace Mumbai
 - **Status:** Upcoming
 
+[Register via Hackerspace Mumbai](https://hackmum.in). Registration requires
+approval; final timings will be shared with approved attendees.
+
 [Event announcement](https://hackmum.in/blog/github-universe-2026-recap-mumbai/)
